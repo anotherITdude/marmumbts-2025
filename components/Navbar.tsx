@@ -29,23 +29,29 @@ const Navbar = () => {
             locale === "/ar" ? "order-2" : "order-1"
           }`}
         >
-          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 shadow-lg w-20 sm:w-24">
-            <div className="flex items-center justify-center gap-1">
+          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-white/20 rounded-full px-2 py-2 shadow-lg w-20 sm:w-24">
+            <div className="flex items-center justify-center gap-0">
               {locales.map((lang, index) => (
                 <React.Fragment key={lang}>
                   <Link
                     href={lang === "en" ? "/" : `/${lang}`}
-                    className={`text-sm sm:text-lg font-Circular-Bold transition-all duration-300 px-2 py-1 rounded-full w-6 sm:w-8 text-center ${
+                    className={`text-sm sm:text-lg font-Circular-Bold transition-all duration-300 rounded-full h-7 w-7 sm:h-8 sm:w-8 flex items-center justify-center ${
                       locale === `/${lang}` || (locale === "/" && lang === "en")
                         ? "text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-md cursor-default"
                         : "text-gray-600 hover:text-blue-600 hover:bg-white/20 cursor-pointer"
                     }`}
+                    onClick={(e) => {
+                      // Force page refresh for proper language switching
+                      e.preventDefault();
+                      const newHref = lang === "en" ? "/" : `/${lang}`;
+                      window.location.href = newHref;
+                    }}
                   >
                     {lang === "ar" ? "Ar" : "En"}
                   </Link>
 
                   {index !== locales.length - 1 && (
-                    <span className="text-gray-400 font-Circular-Bold text-sm px-1">
+                    <span className="text-gray-400 font-Circular-Bold text-xs px-1">
                       |
                     </span>
                   )}
