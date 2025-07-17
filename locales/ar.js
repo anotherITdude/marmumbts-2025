@@ -13,7 +13,7 @@ const translations = {
   'paragraph2': "تسوق، استمتع، واستفد من اللحظة في كارفور!",
   'exclusive': 'حصريا لدى',
   // قسم المسابقة
- 
+
   //winner section
   'winner_title': '200',
   'winner_title_p1': 'تذكرة دخول',
@@ -36,7 +36,7 @@ const translations = {
   'staycation': 'إقامة فندقية',
   'staycation_info': "تسوق، استمتع، وفّر، وعش أسعد اللحظات مع كارفور اشتري منتجات مزارع العين المفضلة لديك من أقرب فرع لكارفور ماركت وكن فائزًا محظوظًا برحلة لا تُنسى",
   // How to enter section
-  'How_to_enter':'كيفية المشاركة',
+  'How_to_enter': 'كيفية المشاركة',
   'step_1': '01',
   'step_2': '02',
   'step_3': '03',
@@ -80,7 +80,7 @@ const translations = {
   'copywrite': 'حقوق الطبع والنشر © آي إم جي عالم من المغامرات، 2024. جميع الحقوق محفوظة.',
   // Coming Soon
   'coming_soon': 'قريباً',
-  'coming_soon_description': 'شيء مذهل في الطريق. ترقبوا التحديثات!',
+  'coming_soon_description': 'أفضل حملة للعودة للمدرسة ستنطلق قريباً. جوائز مذهلة للطلاب المميزين!',
 };
 
 export default translations;

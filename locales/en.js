@@ -80,6 +80,6 @@ const translations = {
   'copywrite': 'Copyright © 2024 IMG Worlds of Adventure, All Rights Reserved',
   // Coming Soon
   'coming_soon': 'Coming Soon',
-  'coming_soon_description': 'Something amazing is on the way. Stay tuned for updates!',
+  'coming_soon_description': 'The ultimate back-to-school campaign is launching soon. Amazing prizes for amazing students!',
 };
 export default translations;
