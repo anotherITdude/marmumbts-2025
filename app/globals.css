@@ -3,86 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "DIN";
-  src: url("../Fonts/D-DIN.ttf");
-}
-
-@font-face {
-  font-family: "DIN-Black";
-  src: url("../Fonts/DIN\ Black.ttf");
-}
-
-@font-face {
-  font-family: "DIN-Regular";
-  src: url("../Fonts/DIN2014-Regular.ttf");
-}
-@font-face {
-  font-family: "DINCondensed-Regular";
-  src: url("../Fonts/DINCondensed-Regular.ttf");
-}
-@font-face {
   font-family: "DINCondensed-Bold";
-  src: url("../Fonts/D-DINCondensed-Bold_0.otf");
-}
-@font-face {
-  font-family: "DIN-Bold";
-  src: url("../Fonts/D-DIN-Bold.ttf");
-}
-@font-face {
-  font-family: "DIN-Demi";
-  src: url("../Fonts/DIN\ 2014\ Demi.ttf");
-}
-@font-face {
-  font-family: "DINArabic-Black";
-  src: url("../Fonts/DINArabic-Black.ttf");
-}
-@font-face {
-  font-family: "helvetica-neue-lt-arabic-75-bol";
-  src: url("../Fonts/helvetica-neue-lt-arabic-75-bold.ttf");
+  src: url("../Fonts/DINCondensed-Bold.ttf");
 }
 
 @font-face {
-  font-family: "HelveticaNeueLTArabic-Roman";
-  src: url("../Fonts/HelveticaNeueLTArabic-Roman.ttf");
+  font-family: "Gotham-Black";
+  src: url("../Fonts/Gotham-Black_1.otf");
 }
 
 @font-face {
-  font-family: "Gotham-Medium";
-  src: url("../Fonts/Gotham-Medium_5.otf");
-}
-
-@font-face {
-  font-family: "Circular-Bold";
-  src: url("../Fonts/CircularStd-Bold.otf");
-}
-
-@font-face {
-  font-family: "Circular-Book";
-  src: url("../Fonts/CircularStd-Book.otf");
-}
-@font-face {
-  font-family: "BebasNeue";
-  src: url("../Fonts/BebasNeue-Regular.ttf");
-}
-
-@font-face {
-  font-family: "BarlowCondensed-Regular";
-  src: url("../Fonts/BarlowCondensed-Regular.ttf");
-}
-
-@font-face {
-  font-family: "NotoKufiArabic-ExtraBold";
-  src: url("../Fonts/NotoKufiArabic-ExtraBold.ttf");
-}
-
-@font-face {
-  font-family: "NotoKufiArabic-ExtraLight";
-  src: url("../Fonts/NotoKufiArabic-ExtraLight.ttf");
-}
-
-@font-face {
-  font-family: "NotoKufiArabic-Regular";
-  src: url("../Fonts/NotoKufiArabic-Regular.ttf");
+  font-family: "Impact";
+  src: url("../Fonts/impact.ttf");
 }
 
 /* @layer base {

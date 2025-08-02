@@ -74,6 +74,7 @@ const Navbar = () => {
             className="w-[150px] pt-4 md:w-[200px] cursor-pointer"
           />
         </Link>
+        test
       </motion.div>
     </motion.nav>
   );

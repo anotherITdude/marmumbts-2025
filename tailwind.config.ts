@@ -19,13 +19,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        'Circular-Bold': ['Circular-Bold', 'Arial', 'sans-serif'],
-        'Circular-Book': ['Circular-Book', 'Arial', 'sans-serif'],
-        'BebasNeue-Regular': ['BebasNeue', 'Arial', 'sans-serif'],
-        'NotoKufiArabic-ExtraBold': ['NotoKufiArabic-ExtraBold', 'Arial', 'sans-serif'],
-        'NotoKufiArabic-Regular': ['NotoKufiArabic-Regular', 'Arial', 'sans-serif'],
-        'DIN': ['DIN', 'Arial', 'sans-serif'],
-        'DIN-Bold': ['DIN-Bold', 'Arial', 'sans-serif'],
+        "DINCondensed-Bold": ["DINCondensed-Bold", "Arial", "sans-serif"],
+        "Gotham-Black": ["Gotham-Black", "Arial", "sans-serif"],
+        "Impact": ["Impact", "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
