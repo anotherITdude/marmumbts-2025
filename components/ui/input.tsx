@@ -17,9 +17,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           // Base styles
           "w-full h-14 px-6 rounded-full outline-none transition-all duration-200",
           // Background and border
-          "bg-blue-100 border-2 border-blue-200",
+          "bg-webLightBlue border-2 border-blue-200",
           // Text and placeholder colors
-          "text-gray-700 placeholder-gray-500",
+          "text-black placeholder-black",
           // Focus states
           "focus:border-blue-400 focus:bg-blue-50",
           // Disabled states
@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           error ? "border-red-500 bg-red-50" : "",
           // Font styling based on locale
           locale === "/"
-            ? "font-BebasNeue tracking-wider text-sm"
+            ? "font-DINCondensed-Bold tracking-wider text-md"
             : "font-NotoKufiArabic-Regular text-sm",
           className,
         )}

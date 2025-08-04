@@ -223,7 +223,7 @@ const RegistrationForm = () => {
                       bg-blue-100
                       border-2
                       border-blue-200
-                      text-gray-700
+                      text-black
                       outline-none
                       transition-all
                       duration-200
@@ -234,14 +234,14 @@ const RegistrationForm = () => {
                       ${errors.emirate ? "border-red-500 bg-red-50" : ""}
                       ${
                         locale === "/"
-                          ? "font-BebasNeue tracking-wider text-sm"
+                          ? "font-DINCondensed-Bold tracking-wider text-md"
                           : "font-NotoKufiArabic-Regular text-sm"
                       }
                     `}
                     >
                       <SelectValue placeholder={t.emirate} />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="">
                       <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
                       <SelectItem value="dubai">Dubai</SelectItem>
                       <SelectItem value="sharjah">Sharjah</SelectItem>
@@ -313,10 +313,10 @@ const RegistrationForm = () => {
                   >
                     <span
                       className={`
-                      ${selectedFile ? "text-gray-700" : "text-gray-500"}
+                      ${selectedFile ? "text-black" : "text-black"}
                       ${
                         locale === "/"
-                          ? "font-BebasNeue tracking-wider text-sm"
+                          ? "font-DINCondensed-Bold tracking-wider text-md"
                           : "font-NotoKufiArabic-Regular text-sm"
                       }
                     `}

@@ -58,6 +58,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         // Custom colors for your project
+        webLightBlue: "#C9EDFF",
         webBlue: "#0075C9", // You can adjust this color value
         webRed: "#EF4444",
         webWhite: "#FFFFFF",
