@@ -26,7 +26,7 @@ const translations = {
   'happy': 'HAPPY',
   'uae': 'UAE',
   'national_day': 'NATIONAL DAY',
-  'register_now': 'SUBMIT NOW',
+  'register_now': 'SUBMIT',
   'paragraph1': "Celebrate UAE National Day at Carrefour with Al Ain Farms as we bring to you a blend of celebrations with your favorite products. As you shop, savor the joy of the season, don't miss the chance to score big - with every purchase, you could win a fabulous staycation!",
   'paragraph2': "Shop, savor, and seize the moment at Carrefour!",
   'exclusive': 'EXCLUSIVELY AT',

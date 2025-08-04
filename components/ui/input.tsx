@@ -1,22 +1,75 @@
-import * as React from "react"
+import * as React from "react";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-import { cn } from "@/lib/utils"
+export interface InputProps extends React.ComponentProps<"input"> {
+  error?: boolean;
+}
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, error, ...props }, ref) => {
+    const locale = usePathname();
+
     return (
       <input
         type={type}
         className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-          className
+          // Base styles
+          "w-full h-14 px-6 rounded-full outline-none transition-all duration-200",
+          // Background and border
+          "bg-blue-100 border-2 border-blue-200",
+          // Text and placeholder colors
+          "text-gray-700 placeholder-gray-500",
+          // Focus states
+          "focus:border-blue-400 focus:bg-blue-50",
+          // Disabled states
+          "disabled:opacity-70 disabled:cursor-not-allowed",
+          // Error states
+          error ? "border-red-500 bg-red-50" : "",
+          // Font styling based on locale
+          locale === "/"
+            ? "font-BebasNeue tracking-wider text-sm"
+            : "font-NotoKufiArabic-Regular text-sm",
+          className,
         )}
         ref={ref}
         {...props}
       />
-    )
-  }
-)
-Input.displayName = "Input"
+    );
+  },
+);
+Input.displayName = "Input";
 
-export { Input }
+// FormField wrapper component for handling errors
+export interface FormFieldProps {
+  children: React.ReactNode;
+  error?: string;
+  className?: string;
+}
+
+const FormField: React.FC<FormFieldProps> = ({
+  children,
+  error,
+  className,
+}) => {
+  const locale = usePathname();
+
+  return (
+    <div className={cn("form-field w-full", className)}>
+      <div className="relative">
+        {children}
+        {error && (
+          <p
+            className={`text-red-500 text-xs mt-1 ${
+              locale === "/" ? "ml-6" : "mr-6"
+            }`}
+          >
+            {error}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export { Input, FormField };

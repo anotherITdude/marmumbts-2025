@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { Button as ShadcnButton } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps {
@@ -64,37 +63,52 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <ShadcnButton
-      onClick={onClick}
-      disabled={disabled}
-      variant={outline ? "outline" : "default"}
-      size={small ? "sm" : "default"}
-      className={cn(
-        "group transition-all duration-200 rounded-full uppercase tracking-wider",
-        // Custom font styling based on locale
-        locale === "/"
-          ? "font-BebasNeue text-sm"
-          : "font-NotoKufiArabic-Regular text-xs",
-        // Custom color styling
-        outline
-          ? "border-webBlue text-webBlue hover:bg-webBlue hover:text-webWhite"
-          : "bg-webBlue text-webWhite hover:bg-webBlue/90",
-        small && "text-md",
-        className,
-      )}
-    >
-      {locale === "/" ? (
-        <>
-          {label}
-          {arrow && arrowSign()}
-        </>
-      ) : (
-        <>
-          {arrow && arrowSign()}
-          {label}
-        </>
-      )}
-    </ShadcnButton>
+    <div className="relative group">
+      {/* Main button container with 3D effect */}
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        className={cn(
+          "relative overflow-hidden transition-all duration-200 rounded-full uppercase tracking-wider",
+          "bg-webBlue text-webWhite",
+          "hover:bg-webBlue/90 active:translate-y-1",
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          // Size variants
+          small ? "h-10 px-6 py-2" : "h-12 px-14 py-1",
+          // Font styling based on locale
+          locale === "/"
+            ? "font-BebasNeue text-md"
+            : "font-NotoKufiArabic-Regular text-md",
+          small && "text-lg",
+          className,
+        )}
+        style={{
+          // 3D effect using box-shadow
+          boxShadow: `
+            0 1.5px 0 0 white,
+            0 4px 0 0 #0075C9,
+            0 8px 15px rgba(0, 0, 0, 0.2)
+          `,
+        }}
+      >
+        {/* Button content */}
+        <span className="relative z-10 flex items-center justify-center gap-2">
+          {locale === "/" ? (
+            <>
+              {label}
+              {arrow && arrowSign()}
+            </>
+          ) : (
+            <>
+              {arrow && arrowSign()}
+              {label}
+            </>
+          )}
+        </span>
+
+        {/* Pseudo-element for additional 3D effect */}
+      </button>
+    </div>
   );
 };
 
