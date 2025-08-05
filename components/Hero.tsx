@@ -23,9 +23,9 @@ const Hero = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden">
+    <div className="min-h-auto  overflow-hidden">
       {/* Background pattern - lined notebook paper effect */}
-      <div className="absolute inset-0 opacity-20">
+      <div className=" inset-0 opacity-20">
         <div
           className="h-full w-full"
           style={{
