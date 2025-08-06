@@ -130,7 +130,7 @@ const RegistrationForm = () => {
   return (
     <div
       id="register"
-      className="w-[90%] md:w-[70%] md:mt-[8%] md:mb-[8%] justify-center items-center relative"
+      className="w-[90%] md:w-[70%] justify-center items-center relative"
     >
       {/* Pin Icon */}
       <div className="absolute top-0 right-8 md:right-16 z-10">

@@ -35,7 +35,7 @@ const RegisterSection: React.FC<RegisterSectionInterface> = ({ title }) => {
   return (
     <div id="register">
       <div className="flex overflow-visible flex-col md:flex-row justify-evenly pb-0">
-        <div className="flex w-full pt-14  pb-14 md:pt-0 md:pb-0 justify-center min-h-[400px]">
+        <div className="flex w-full py-10 justify-center min-h-auto">
           <RegistrationForm />
         </div>
       </div>
