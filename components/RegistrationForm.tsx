@@ -28,6 +28,7 @@ import Button from "./Button";
 import registrationLine from "../public/2025/registrationline.png";
 import uploadIcon from "../public/2025/upload.png";
 import pinIcon from "../public/2025/pin.png";
+import registrationTitle from "../public/2025/registration_title@72x.png";
 
 const RegistrationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -139,24 +140,12 @@ const RegistrationForm = () => {
 
       <div className="">
         <div className="right">
-          <h2
-            className={`text-webBlue text-center uppercase mb-4
-          ${
-            locale === "/"
-              ? "font-Impact text-[47px] md:text-6xl pl-0 text"
-              : "font-NotoKufiArabic-ExtraBold text-4xl md:text-5xl pr-0"
-          }
-          `}
-          >
-            {t.registration}
-          </h2>
-
-          {/* Registration line decoration */}
-          <div className="flex justify-center -mt-5 mb-8">
+          {/* Registration Title Image */}
+          <div className="flex justify-center mb-8">
             <Image
-              src={registrationLine}
-              alt="Registration Line"
-              className="max-w-[300px] md:max-w-[400px]"
+              src={registrationTitle}
+              alt="Registration"
+              className="max-w-[300px] md:max-w-[400px] h-auto"
             />
           </div>
 
