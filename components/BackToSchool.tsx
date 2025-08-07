@@ -53,7 +53,7 @@ const BackToSchool = () => {
   const t = locale === "/" ? en : ar;
 
   return (
-    <div className="bg-white min-h-auto px-4 md:px-10 py-10 md:py-10 relative overflow-hidden">
+    <div className=" min-h-auto px-4 md:px-10 py-10 md:py-10 relative overflow-hidden">
       {/* Smiley Image - Absolute positioned with rolling animation */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 md:top-12 md:left-[8.5%] md:transform-none z-10">
         <motion.div style={{ rotate, x }} className="w-16 h-16 md:w-20 md:h-20">

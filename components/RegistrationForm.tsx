@@ -134,9 +134,23 @@ const RegistrationForm = () => {
       className="w-[90%] md:w-[70%] justify-center items-center relative"
     >
       {/* Pin Icon */}
-      <div className="absolute top-0 right-8 md:right-16 z-10">
+      <motion.div
+        className="absolute top-0 right-8 md:right-16 z-10"
+        animate={{
+          x: [0, 3, -4, 6, 0],
+          y: [0, 4, -2, 3, 0],
+          rotate: [0, 3, -2, 4, 0],
+        }}
+        transition={{
+          duration: 5.5,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "loop",
+          delay: 1.5,
+        }}
+      >
         <Image src={pinIcon} alt="Pin" className="w-12 h-12 md:w-16 md:h-16" />
-      </div>
+      </motion.div>
 
       <div className="">
         <div className="right">

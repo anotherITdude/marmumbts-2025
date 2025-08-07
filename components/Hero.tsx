@@ -23,24 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="min-h-auto  overflow-hidden">
-      {/* Background pattern - lined notebook paper effect */}
-      <div className=" inset-0 opacity-20">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-            linear-gradient(90deg, transparent 0%, transparent 40px, #e5e7eb 40px, #e5e7eb 41px, transparent 41px),
-            linear-gradient(0deg, transparent 0%, transparent 24px, #e5e7eb 24px, #e5e7eb 25px, transparent 25px)
-          `,
-            backgroundSize: "50px 25px",
-          }}
-        >
-          {/* Red margin line */}
-          <div className="absolute left-0 top-0 w-1 h-full bg-red-500"></div>
-        </div>
-      </div>
-
+    <div className="min-h-auto overflow-hidden relative">
       <Navbar />
 
       <div className="relative z-10 px-4 py-8">
@@ -48,34 +31,43 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
           {/* Left Section - Back to School + Win List */}
           <motion.div {...motionSettings} className="flex flex-col gap-8">
-            {/* Back to School */}
-            <Image
-              src={backtoschool}
-              alt="Back to School Winning"
-              className="w-full max-w-[450px] h-auto"
-              priority
-            />
+            {/* Back to School Image */}
+            <div className="flex justify-center">
+              <Image
+                src={backtoschool}
+                alt="Back to School"
+                className="max-w-full h-auto object-contain"
+                priority
+              />
+            </div>
 
-            {/* Win List */}
-            <Image
-              src={winlist}
-              alt="Win List - Prizes"
-              className="w-full max-w-[300px] h-auto"
-            />
+            {/* Win List Image */}
+            <div className="flex justify-center">
+              <Image
+                src={winlist}
+                alt="Win List - 50 Winners of 4 Tickets Each"
+                className="max-w-full h-auto object-contain"
+              />
+            </div>
           </motion.div>
 
-          {/* Right Section - Hero */}
+          {/* Right Section - Hero Image */}
           <motion.div
             {...motionSettingsStagger}
-            transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center lg:justify-end"
           >
             <Image
               src={hero}
-              alt="Hero Character"
-              className="w-full max-w-[500px] h-auto object-contain"
+              alt="Hero Image"
+              className="max-w-full h-auto object-contain"
+              priority
             />
           </motion.div>
+        </div>
+
+        {/* Additional decorative elements can be added here */}
+        <div className="mt-8 text-center">
+          {/* You can add any additional hero content here */}
         </div>
       </div>
     </div>

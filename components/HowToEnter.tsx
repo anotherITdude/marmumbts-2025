@@ -31,7 +31,7 @@ const HowToEnter = () => {
   const t = locale === "/" ? en : ar;
 
   return (
-    <div className="bg-white min-h-auto px-4 md:px-10 py-10 md:py-10 relative overflow-hidden">
+    <div className=" min-h-auto px-4 md:px-12 py-10 md:py-10 relative overflow-hidden">
       <div className="mx-auto">
         {/* Flex Grid Layout */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
@@ -58,7 +58,7 @@ const HowToEnter = () => {
             </div>
 
             {/* Steps Content */}
-            <div className="space-y-6 md:space-y-8 md:ml-10">
+            <div className="space-y-6 md:space-y-8 md:ml-10 text-webPara ">
               {/* Step 1 */}
               <div
                 className={`flex items-start gap-4 ${
@@ -70,7 +70,7 @@ const HowToEnter = () => {
                     {t.step_1}
                   </div>
                 </div>
-                <div className="text-gray-800 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div className=" font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_1_content}
                 </div>
               </div>
@@ -86,7 +86,7 @@ const HowToEnter = () => {
                     {t.step_2}
                   </div>
                 </div>
-                <div className="text-gray-800 mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div className=" mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_2_content}
                 </div>
               </div>
@@ -102,7 +102,7 @@ const HowToEnter = () => {
                     {t.step_3}
                   </div>
                 </div>
-                <div className="text-gray-800 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div className=" font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_3_content}
                 </div>
               </div>
@@ -118,7 +118,7 @@ const HowToEnter = () => {
                     {t.step_4}
                   </div>
                 </div>
-                <div className="text-gray-800 mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div className=" mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_4_content}
                 </div>
               </div>

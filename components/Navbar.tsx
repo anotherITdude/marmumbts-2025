@@ -29,17 +29,18 @@ const Navbar = () => {
             locale === "/ar" ? "order-2" : "order-1"
           }`}
         >
-          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-white/20 rounded-full px-2 py-2 shadow-lg w-20 sm:w-24">
+          <div className="rounded-lg -mt-16 ml-12">
             <div className="flex items-center justify-center gap-0">
               {locales.map((lang, index) => (
                 <React.Fragment key={lang}>
                   <Link
                     href={lang === "en" ? "/" : `/${lang}`}
-                    className={`text-sm sm:text-lg font-Circular-Bold transition-all duration-300 rounded-full h-7 w-7 sm:h-8 sm:w-8 flex items-center justify-center ${
+                    className={`text-lg  transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
                       locale === `/${lang}` || (locale === "/" && lang === "en")
-                        ? "text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-md cursor-default"
-                        : "text-gray-600 hover:text-blue-600 hover:bg-white/20 cursor-pointer"
+                        ? "text-webBlue   cursor-default"
+                        : "text-black hover:text-webBlue hover:bg-gray-100 cursor-pointer"
                     }`}
+                    style={{ fontFamily: "DINCondensed-Bold, sans-serif" }}
                     onClick={(e) => {
                       // Force page refresh for proper language switching
                       e.preventDefault();
@@ -47,13 +48,11 @@ const Navbar = () => {
                       window.location.href = newHref;
                     }}
                   >
-                    {lang === "ar" ? "Ar" : "En"}
+                    {lang === "ar" ? "AR" : "EN"}
                   </Link>
 
                   {index !== locales.length - 1 && (
-                    <span className="text-gray-400 font-Circular-Bold text-xs px-1">
-                      |
-                    </span>
+                    <span className="text-gray-400 text-xs px-1 -mt-1">|</span>
                   )}
                 </React.Fragment>
               ))}
@@ -71,10 +70,9 @@ const Navbar = () => {
             placeholder="empty"
             src={finalLogo}
             alt="logo"
-            className="w-[150px] pt-4 md:w-[200px] cursor-pointer"
+            className="w-[150px] pt-4 -mt-8 md:w-[200px] cursor-pointer"
           />
         </Link>
-        test
       </motion.div>
     </motion.nav>
   );
