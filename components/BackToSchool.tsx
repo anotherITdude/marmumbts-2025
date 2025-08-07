@@ -82,7 +82,7 @@ const BackToSchool = () => {
       </div>
 
       {/* Book Image - Absolute positioned with floating animation */}
-      <div className="absolute -top-2 md:top-16 -left-4 md:top-32 md:-left-12 z-10">
+      <div className="absolute -top-2 -left-4 md:top-32 md:-left-12 z-10">
         <motion.div
           animate={{
             x: [0, -2.2, 2.2, -1.1, 0],
