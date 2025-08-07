@@ -11,10 +11,10 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
     <div
       dir={`${locale === "/ar" ? "rtl" : "ltr"}`}
-      className="max-w-[99%] lg:max-w-[1000px] pt-2 md:pt-[50px] pb-2 md:pb-[50px] mx-auto rounded-b-3xl relative min-h-screen overflow-x-hidden"
+      className="max-w-[99%] lg:max-w-[1000px] pt-2 md:pt-[50px] pb-2 md:pb-[50px] mx-auto rounded-b-3xl relative min-h-screen"
     >
       {/* Navbar Header Image - positioned sticky at the top */}
-      <div className="sticky top-0 left-0 mt-0 right-0 z-50 bg-white">
+      <div className="sticky top-0 z-50 bg-white w-full">
         <Image
           src="/2025/navbar_header.png"
           alt="Notepad Header"
@@ -29,7 +29,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
 
       {/* Content area with notepad lines starting after header */}
       <div
-        className="relative min-h-screen bg-white rounded-b-3xl"
+        className="relative min-h-screen bg-white rounded-b-3xl overflow-x-hidden"
         style={{
           backgroundImage: `repeating-linear-gradient(
             transparent 0px,
