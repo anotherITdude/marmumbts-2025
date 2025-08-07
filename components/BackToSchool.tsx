@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import en from "../locales/en";
 import ar from "../locales/ar";
@@ -14,12 +14,26 @@ const BackToSchool = () => {
   const translateX = useMotionValue(0);
   const rotate = useSpring(scrollY, { stiffness: 50, damping: 20 });
   const x = useSpring(translateX, { stiffness: 50, damping: 20 });
+  
+  // Track if we're on mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Convert scroll to rotation (every 500px = 360 degrees)
-      const rotationValue = (currentScrollY / 500) * 360;
+      // Convert scroll to rotation (every 500px = 360 degrees) - only for desktop
+      const rotationValue = isMobile ? 0 : (currentScrollY / 500) * 360;
       // Convert scroll to horizontal movement (every 500px = 100px movement)
       const translateValue = (currentScrollY / 500) * 100;
 
@@ -29,7 +43,7 @@ const BackToSchool = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollY, translateX]);
+  }, [scrollY, translateX, isMobile]);
 
   const motionSettingstop2bottom = {
     initial: { opacity: 0.5, y: -15 },
@@ -53,16 +67,22 @@ const BackToSchool = () => {
   const t = locale === "/" ? en : ar;
 
   return (
-    <div className=" min-h-auto px-4 md:px-10 py-10 md:py-10 relative overflow-hidden">
-      {/* Smiley Image - Absolute positioned with rolling animation */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 md:top-12 md:left-[8.5%] md:transform-none z-10">
-        <motion.div style={{ rotate, x }} className="w-16 h-16 md:w-20 md:h-20">
+    <div className="min-h-auto px-4 md:px-10 py-10 md:py-10 relative md:overflow-hidden">
+      {/* Smiley Image - Absolute positioned with rolling animation (desktop) or just horizontal movement (mobile) */}
+      <div className="absolute top-4 -left-[10%] md:left-[8.5%] transform -translate-x-1 md:top-12  md:transform-none z-10">
+        <motion.div 
+          style={{ 
+            rotate: isMobile ? 0 : rotate, 
+            x 
+          }} 
+          className="w-12 h-12 md:w-20 md:h-20"
+        >
           <Image src={smiley_w_shadow} alt="Smiley" className="w-full h-full" />
         </motion.div>
       </div>
 
       {/* Book Image - Absolute positioned with floating animation */}
-      <div className="absolute top-20 -left-8 md:top-32 md:-left-12 z-10">
+      <div className="absolute -top-2 md:top-16 -left-4 md:top-32 md:-left-12 z-10">
         <motion.div
           animate={{
             x: [0, -2.2, 2.2, -1.1, 0],
@@ -80,20 +100,21 @@ const BackToSchool = () => {
           <Image
             src={backtoschool_book}
             alt="School Book"
-            className="w-32 h-auto md:w-60 opacity-90"
+            className="w-20 h-auto md:w-60 opacity-90"
           />
         </motion.div>
       </div>
 
-      <div className="mx-auto md:pl-[30%] relative z-20">
-        {/* Main Content Container */}
+      {/* Main Content Container */}
+      <div className="mx-auto md:pl-[30%] relative z-20 pt-8 md:pt-0">
         <div className="flex">
-          <div className="flex-1"></div>
-          <div className="flex flex-col items-end text-right space-y-6 max-w-4xl">
+          <div className="flex-1 md:block hidden"></div>
+          <div className="flex flex-col items-center text-left md:items-end md:text-right ml-3 md:ml-0 
+          space-y-4 md:space-y-6 max-w-4xl w-full md:w-auto">
             {/* Title Image */}
             <motion.div
               {...motionSettingstop2bottom}
-              className="w-full max-w-lg flex justify-end"
+              className="w-full max-w-xs md:max-w-lg flex justify-center ml-2 md:ml-0 md:justify-end"
             >
               <Image
                 src={backtoschool_title}
@@ -103,8 +124,11 @@ const BackToSchool = () => {
             </motion.div>
 
             {/* Subtitle */}
-            <motion.div {...motionSettingstop2bottom} className="w-full">
-              <h2 className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+            <motion.div
+              {...motionSettingstop2bottom}
+              className="w-full px-2 md:px-0 pt-2 md:pt-0"
+            >
+              <h2 className="text-webPara font-DINCondensed-Bold text-lg md:text-lg leading-relaxed">
                 {t.back_to_school_subtitle}
               </h2>
             </motion.div>
@@ -112,20 +136,23 @@ const BackToSchool = () => {
             {/* Main Promotional Text */}
             <motion.div
               {...motionSettingsleft2right}
-              className="w-full space-y-4"
+              className="w-full space-y-3 md:space-y-4 px-2 md:px-0"
             >
-              <p className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+              <p className="text-webPara  font-DINCondensed-Bold text-lg md:text-lg leading-relaxed">
                 {t.back_to_school_main_text}
               </p>
             </motion.div>
 
             {/* Contact Information */}
-            <motion.div {...motionSettingsright2left} className="w-full">
-              <p className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+            <motion.div
+              {...motionSettingsright2left}
+              className="w-full px-2 md:px-0"
+            >
+              <p className="text-webPara font-DINCondensed-Bold text-lg md:text-lg leading-relaxed">
                 {t.back_to_school_contact}{" "}
                 <a
                   href="mailto:marketing.comms@marmum.com"
-                  className="text-[#2B5CE6] hover:underline font-bold"
+                  className="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal"
                 >
                   marketing.comms@marmum.com
                 </a>{" "}
