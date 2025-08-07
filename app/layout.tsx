@@ -6,8 +6,13 @@ import { ToasterProvider } from "@/providers/toast-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Marmum Dairy Farm - Campaign 2025",
-  description: "Marmum dairy farm campaign 2025",
+  title: "Marmum Dairy Farm - Back to School 2025",
+  description: "Marmum dairy farm back to school campaign 2025",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +22,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="../public/favicon.png" />
       <body suppressHydrationWarning={true} className={inter.className}>
         <ToasterProvider />
         {children}
