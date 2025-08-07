@@ -60,7 +60,7 @@ const config = {
         // Custom colors for your project
         webLightBlue: "#C9EDFF",
         webPara:"#4F4F52",
-        bgMain: "#AAAAAA",
+        bgMain: "#383838",
         webBlue: "#0075C9", // You can adjust this color value
         webRed: "#EF4444",
         webWhite: "#FFFFFF",

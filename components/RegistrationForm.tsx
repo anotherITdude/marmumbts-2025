@@ -169,7 +169,7 @@ const RegistrationForm = () => {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="px-2 sm:px-4 pt-0 mt-1"
+            className="md:px-2  pt-0 mt-1 ml-3 md:ml-0"
           >
             {/* First Row: Name and Mobile */}
             <div className="flex flex-col gap-4  md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">

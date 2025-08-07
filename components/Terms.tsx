@@ -23,7 +23,7 @@ const Terms = () => {
               locale !== "/" ? "flex justify-end" : "flex justify-start"
             }`}
           >
-            <div className="w-auto ml-1.5 md:ml-0 max-w-[110%] md:max-w-lg">
+            <div className="w-auto ml-2 md:ml-0 max-w-[110%] md:max-w-lg">
               <Image
                 src={terms_title}
                 alt="Terms & Conditions"
@@ -38,7 +38,7 @@ const Terms = () => {
             {/* Pen and Cup Images - Top Right */}
             <div className="flex gap-4 ">
               <motion.div
-                className="absolute -top-[20%] md:-top-32  md:right-[20%] z-10"
+                className="absolute -top-[22%] md:-top-32  md:right-[20%] z-10"
                 animate={{
                   x: [0, -5, 5, -3, 0],
                   y: [0, -3, 2, -4, 0],
@@ -59,7 +59,7 @@ const Terms = () => {
                 />
               </motion.div>
               <motion.div
-                className="absolute -top-[27%] md:-top-40 -right-[5%]  md:-right-[10%] z-10"
+                className="absolute -top-[29%] md:-top-40 -right-[5%]  md:-right-[10%] z-10"
                 animate={{
                   x: [0, 3, -4, 6, 0],
                   y: [0, 4, -2, 3, 0],

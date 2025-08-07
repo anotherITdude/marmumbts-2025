@@ -26,7 +26,7 @@ const Hero = () => {
     <div className="min-h-auto overflow-hidden relative">
       <Navbar />
 
-      <div className="relative z-10 px-4 sm:px-6 md:px-10 py-4 md:py-0 md:pb-5">
+      <div className="relative z-10 px-4 sm:px-6 md:px-10  pt-4 md:pt-0 md:py-0 md:pb-5">
         {/* Main Flex Layout */}
         <div className="flex flex-col lg:flex-row justify-center items-center gap-2 sm:gap-4 lg:gap-6">
           {/* Left Section - Back to School + Win List */}
@@ -39,7 +39,7 @@ const Hero = () => {
               <Image
                 src={backtoschool}
                 alt="Back to School"
-                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
+                className="w-full max-w-[90%] md:max-w-[400px] lg:max-w-full h-auto object-contain"
                 priority
               />
             </div>
@@ -49,7 +49,7 @@ const Hero = () => {
               <Image
                 src={winlist}
                 alt="Win List - 50 Winners of 4 Tickets Each"
-                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
+                className="w-full max-w-[85%] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
               />
             </div>
           </motion.div>
@@ -62,7 +62,7 @@ const Hero = () => {
             <Image
               src={hero}
               alt="Hero Image"
-              className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-full h-auto object-contain"
+              className="w-full max-w-[85%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-full h-auto object-contain"
               priority
             />
           </motion.div>

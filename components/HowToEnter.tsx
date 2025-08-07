@@ -48,7 +48,7 @@ const HowToEnter = () => {
                 locale !== "/" ? "flex justify-end" : "flex justify-start"
               }`}
             >
-              <div className="w-auto max-w-[240px] sm:max-w-[270px] md:max-w-[360px]">
+              <div className="w-auto max-w-[240px] sm:max-w-[270px] md:max-w-[360px] ml-2 md:ml-0">
                 <Image
                   src={howtoenter_title}
                   alt="How to Enter"
@@ -58,7 +58,7 @@ const HowToEnter = () => {
             </div>
 
             {/* Steps Content */}
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 ml-2 sm:ml-5 md:ml-10 text-webPara pt-2 md:pt-0">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 ml-5 md:ml-10 text-webPara pt-2 md:pt-0">
               {/* Step 1 */}
               <div
                 className={`flex items-start gap-3 sm:gap-4 ${
@@ -137,7 +137,7 @@ const HowToEnter = () => {
           {/* Right Side - Sticker Image */}
           <motion.div
             {...motionSettingsright2left}
-            className={`w-full lg:w-[60%] flex justify-center lg:justify-end max-w-full ${
+            className={`w-full lg:w-[60%] flex justify-center ml-4 md:ml=0 lg:justify-end max-w-full ${
               locale !== "/" ? "lg:order-1" : "lg:order-2"
             }`}
           >
