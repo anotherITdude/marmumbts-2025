@@ -57,21 +57,32 @@ const BackToSchool = () => {
       {/* Smiley Image - Absolute positioned with rolling animation */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 md:top-12 md:left-[8.5%] md:transform-none z-10">
         <motion.div style={{ rotate, x }} className="w-16 h-16 md:w-20 md:h-20">
-          <Image
-            src={smiley_w_shadow}
-            alt="Smiley"
-            className="w-full h-full"
-          />
+          <Image src={smiley_w_shadow} alt="Smiley" className="w-full h-full" />
         </motion.div>
       </div>
 
-      {/* Book Image - Absolute positioned */}
+      {/* Book Image - Absolute positioned with floating animation */}
       <div className="absolute top-20 -left-8 md:top-32 md:-left-12 z-10">
-        <Image
-          src={backtoschool_book}
-          alt="School Book"
-          className="w-32 h-auto md:w-60 opacity-90"
-        />
+        <motion.div
+          animate={{
+            x: [0, -2.2, 2.2, -1.1, 0],
+            y: [0, -1.1, 1.1, -2.2, 0],
+            rotate: [-0.55, 0.55, -1.1, 0.55, -0.55],
+          }}
+          transition={{
+            duration: 6,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+            delay: 5.5,
+          }}
+        >
+          <Image
+            src={backtoschool_book}
+            alt="School Book"
+            className="w-32 h-auto md:w-60 opacity-90"
+          />
+        </motion.div>
       </div>
 
       <div className="mx-auto md:pl-[30%] relative z-20">
@@ -93,9 +104,8 @@ const BackToSchool = () => {
 
             {/* Subtitle */}
             <motion.div {...motionSettingstop2bottom} className="w-full">
-              <h2 className="text-gray-700 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
-                Kick off the school year with Marmum for a chance to win
-                exciting prizes!
+              <h2 className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                {t.back_to_school_subtitle}
               </h2>
             </motion.div>
 
@@ -104,25 +114,15 @@ const BackToSchool = () => {
               {...motionSettingsleft2right}
               className="w-full space-y-4"
             >
-              <p className="text-gray-800 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
-                We&apos;re giving away 5 school fee vouchers worth AED 15,000
-                each, 10 iPad Pros, 20 AirPods, and 100 Figure Packs. To enter,
-                simply purchase any Marmum milk, yoghurt, or laban products
-                during the promotion period, upload your receipt and you&apos;re
-                in the draw to win!
-              </p>
-
-              <p className="text-gray-800 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
-                The offer is valid from 15 August to 30 September 2025, and all
-                prizes must be claimed by 25 November 2025.
+              <p className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                {t.back_to_school_main_text}
               </p>
             </motion.div>
 
             {/* Contact Information */}
             <motion.div {...motionSettingsright2left} className="w-full">
-              <p className="text-gray-700 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
-                For any enquiries related to the promotion, please reach out to
-                us at{" "}
+              <p className="text-webPara font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                {t.back_to_school_contact}{" "}
                 <a
                   href="mailto:marketing.comms@marmum.com"
                   className="text-[#2B5CE6] hover:underline font-bold"

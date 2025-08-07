@@ -16,7 +16,7 @@ const Navbar = () => {
   const t = locale === "/" ? en : ar;
   return (
     <motion.nav
-      className={`flex justify-between gap-x-4 -mb-00 z-50 relative px-6 md:px-10 max-w-7xl mx-auto w-full`}
+      className={`flex justify-between gap-x-2 sm:gap-x-4 -mb-00 z-50 relative px-4 sm:px-6 md:px-10 max-w-7xl mx-auto w-full`}
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -25,20 +25,20 @@ const Navbar = () => {
         className="font-neosans-medium uppercase flex justify-start items-center gap-[3px]"
       >
         <div
-          className={`mt-6 sm:mt-10 ${
+          className={`mt-4 sm:mt-6 md:mt-10 ${
             locale === "/ar" ? "order-2" : "order-1"
           }`}
         >
-          <div className="rounded-lg -mt-16 ml-12">
+          <div className="rounded-lg -mt-8 md:-mt-16 ml-5 md:ml-12">
             <div className="flex items-center justify-center gap-0">
               {locales.map((lang, index) => (
                 <React.Fragment key={lang}>
                   <Link
                     href={lang === "en" ? "/" : `/${lang}`}
-                    className={`text-lg  transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
+                    className={`text-base sm:text-lg transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
                       locale === `/${lang}` || (locale === "/" && lang === "en")
-                        ? "text-webBlue   cursor-default"
-                        : "text-black hover:text-webBlue hover:bg-gray-100 cursor-pointer"
+                        ? "text-webBlue cursor-default"
+                        : "text-webPara hover:text-webBlue hover:bg-gray-100 cursor-pointer"
                     }`}
                     style={{ fontFamily: "DINCondensed-Bold, sans-serif" }}
                     onClick={(e) => {
@@ -52,7 +52,9 @@ const Navbar = () => {
                   </Link>
 
                   {index !== locales.length - 1 && (
-                    <span className="text-gray-400 text-xs px-1 -mt-1">|</span>
+                    <span className="text-webPara text-xs sm:text-sm px-1 -mt-1">
+                      |
+                    </span>
                   )}
                 </React.Fragment>
               ))}
@@ -62,7 +64,9 @@ const Navbar = () => {
       </motion.div>
 
       <motion.div
-        className={`pt-4 ${locale === "/ar" ? "order-1" : "order-2"}`}
+        className={` pt-5 md:pt-4 ${
+          locale === "/ar" ? "order-1" : "order-2"
+        }`}
       >
         <Link href="/">
           <Image
@@ -70,7 +74,7 @@ const Navbar = () => {
             placeholder="empty"
             src={finalLogo}
             alt="logo"
-            className="w-[150px] pt-4 -mt-8 md:w-[200px] cursor-pointer"
+            className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[200px] pt-2 sm:pt-3 md:pt-4 -mt-6 sm:-mt-7 md:-mt-8 cursor-pointer"
           />
         </Link>
       </motion.div>

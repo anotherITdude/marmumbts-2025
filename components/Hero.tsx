@@ -26,17 +26,20 @@ const Hero = () => {
     <div className="min-h-auto overflow-hidden relative">
       <Navbar />
 
-      <div className="relative z-10 px-4 py-8">
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 py-4 md:py-0 md:pb-5">
         {/* Main Flex Layout */}
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-2 sm:gap-4 lg:gap-6">
           {/* Left Section - Back to School + Win List */}
-          <motion.div {...motionSettings} className="flex flex-col gap-8">
+          <motion.div
+            {...motionSettings}
+            className="flex flex-col gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto"
+          >
             {/* Back to School Image */}
             <div className="flex justify-center">
               <Image
                 src={backtoschool}
                 alt="Back to School"
-                className="max-w-full h-auto object-contain"
+                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
                 priority
               />
             </div>
@@ -46,7 +49,7 @@ const Hero = () => {
               <Image
                 src={winlist}
                 alt="Win List - 50 Winners of 4 Tickets Each"
-                className="max-w-full h-auto object-contain"
+                className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
               />
             </div>
           </motion.div>
@@ -54,19 +57,19 @@ const Hero = () => {
           {/* Right Section - Hero Image */}
           <motion.div
             {...motionSettingsStagger}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end w-full lg:w-auto mt-4 lg:mt-0"
           >
             <Image
               src={hero}
               alt="Hero Image"
-              className="max-w-full h-auto object-contain"
+              className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-full h-auto object-contain"
               priority
             />
           </motion.div>
         </div>
 
         {/* Additional decorative elements can be added here */}
-        <div className="mt-8 text-center">
+        <div className="mt-4 sm:mt-6 lg:mt-8 text-center">
           {/* You can add any additional hero content here */}
         </div>
       </div>

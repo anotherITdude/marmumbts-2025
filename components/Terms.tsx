@@ -77,7 +77,7 @@ const Terms = () => {
             <div className="max-w-4xl mx-auto px-4 md:px-0">
               <div className="bg-transparent">
                 <ol
-                  className={`list-decimal space-y-6 text-gray-800 leading-relaxed ${
+                  className={`list-decimal space-y-6 text-webPara leading-relaxed ${
                     locale === "/"
                       ? "font-DINCondensed-Bold text-lg md:text-md pl-6"
                       : "font-DINCondensed-Bold text-lg md:text-md pr-8"

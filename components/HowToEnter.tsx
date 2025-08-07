@@ -126,8 +126,7 @@ const HowToEnter = () => {
               {/* Additional Text */}
               <div className={`mt-8 ${locale !== "/" ? "text-right" : ""}`}>
                 <p className="text-[#2B5CE6] font-DINCondensed-Bold font-bold text-lg md:text-md ">
-                  The more valid entries you submit, the higher your chances of
-                  winning!
+                  {t.multiple_entries_text}
                 </p>
               </div>
             </div>
