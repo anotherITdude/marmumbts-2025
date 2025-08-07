@@ -14,16 +14,16 @@ const Terms = () => {
   const locale = usePathname();
   const t = locale === "/" ? en : ar;
   return (
-    <div id="terms" className="relative overflow-x-hidden">
+    <div id="terms" className="relative md:overflow-hidden">
       <Section>
-        <div className="relative w-full max-w-6xl mx-auto px-10 py-8">
+        <div className="relative w-full max-w-6xl mx-auto px-1 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 md:py-8">
           {/* Title Image */}
           <div
-            className={`mb-8 ${
+            className={`mb-6 sm:mb-8 ${
               locale !== "/" ? "flex justify-end" : "flex justify-start"
             }`}
           >
-            <div className="w-auto max-w-lg">
+            <div className="w-auto ml-1.5 md:ml-0 max-w-[110%] md:max-w-lg">
               <Image
                 src={terms_title}
                 alt="Terms & Conditions"
@@ -34,11 +34,11 @@ const Terms = () => {
           </div>
 
           {/* Main Content Area */}
-          <div className="relative">
+          <div className="relative ">
             {/* Pen and Cup Images - Top Right */}
-            <div className=" flex gap-4">
+            <div className="flex gap-4 ">
               <motion.div
-                className="absolute -top-40 right-[20%]"
+                className="absolute -top-[20%] md:-top-32  md:right-[20%] z-10"
                 animate={{
                   x: [0, -5, 5, -3, 0],
                   y: [0, -3, 2, -4, 0],
@@ -52,10 +52,14 @@ const Terms = () => {
                   delay: 0,
                 }}
               >
-                <Image src={terms_pen} alt="Pen" className="w-[120px]" />
+                <Image
+                  src={terms_pen}
+                  alt="Pen"
+                  className="w-[60px] sm:w-[80px] md:w-[100px] lg:w-[120px]"
+                />
               </motion.div>
               <motion.div
-                className="absolute -top-40 -right-[10%]"
+                className="absolute -top-[27%] md:-top-40 -right-[5%]  md:-right-[10%] z-10"
                 animate={{
                   x: [0, 3, -4, 6, 0],
                   y: [0, 4, -2, 3, 0],
@@ -69,30 +73,35 @@ const Terms = () => {
                   delay: 1.5,
                 }}
               >
-                <Image src={terms_cup} alt="Trophy Cup" className="w-[160px]" />
+                <Image
+                  src={terms_cup}
+                  alt="Trophy Cup"
+                  className="w-[80px] sm:w-[100px] md:w-[120px] lg:w-[160px]"
+                />
               </motion.div>
             </div>
 
             {/* Terms Content */}
-            <div className="max-w-4xl mx-auto px-4 md:px-0">
+            <div className="max-w-4xl mx-auto px-1.5 sm:px-4 md:px-0">
               <div className="bg-transparent">
                 <ol
-                  className={`list-decimal space-y-6 text-webPara leading-relaxed ${
+                  className={`list-decimal space-y-4 sm:space-y-6 text-webPara leading-relaxed ${
                     locale === "/"
-                      ? "font-DINCondensed-Bold text-lg md:text-md pl-6"
-                      : "font-DINCondensed-Bold text-lg md:text-md pr-8"
+                      ? "font-DINCondensed-Bold text-lg  md:text-lg pl-4 sm:pl-6"
+                      : "font-DINCondensed-Bold text-md  md:text-lg pr-4 sm:pr-6 md:pr-8"
                   }`}
                   style={{
-                    marginLeft: locale === "/" ? "20px" : "0",
-                    marginRight: locale !== "/" ? "20px" : "0",
+                    marginLeft: locale === "/" ? "clamp(10px, 2vw, 20px)" : "0",
+                    marginRight:
+                      locale !== "/" ? "clamp(10px, 2vw, 20px)" : "0",
                   }}
                 >
-                  <li className="mb-4">{t.terms1}</li>
-                  <li className="mb-4">{t.terms2}</li>
-                  <li className="mb-4">{t.terms3}</li>
-                  <li className="mb-4">{t.terms4}</li>
-                  <li className="mb-4">{t.terms5}</li>
-                  <li className="mb-4">{t.terms6}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms1}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms2}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms3}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms4}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms5}</li>
+                  <li className="mb-3 sm:mb-4">{t.terms6}</li>
                 </ol>
               </div>
             </div>

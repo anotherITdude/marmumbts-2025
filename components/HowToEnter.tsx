@@ -31,14 +31,14 @@ const HowToEnter = () => {
   const t = locale === "/" ? en : ar;
 
   return (
-    <div className="min-h-auto px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 relative overflow-hidden">
-      <div className="mx-auto">
+    <div className="min-h-auto px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 relative overflow-x-hidden w-full max-w-full">
+      <div className="mx-auto max-w-full">
         {/* Flex Grid Layout */}
-        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-16 items-start max-w-full">
           {/* Left Side - Title and Content */}
           <motion.div
             {...motionSettingsleft2right}
-            className={`w-full lg:w-[50%] space-y-4 sm:space-y-6 lg:space-y-8 ${
+            className={`w-full lg:w-[50%] space-y-4 sm:space-y-6 lg:space-y-8 max-w-full ${
               locale !== "/" ? "lg:order-2" : "lg:order-1"
             }`}
           >
@@ -48,7 +48,7 @@ const HowToEnter = () => {
                 locale !== "/" ? "flex justify-end" : "flex justify-start"
               }`}
             >
-              <div className="w-auto max-w-[270px] sm:max-w-[360px]">
+              <div className="w-auto max-w-[240px] sm:max-w-[270px] md:max-w-[360px]">
                 <Image
                   src={howtoenter_title}
                   alt="How to Enter"
@@ -58,7 +58,7 @@ const HowToEnter = () => {
             </div>
 
             {/* Steps Content */}
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 ml-5 md:ml-10 text-webPara">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 ml-2 sm:ml-5 md:ml-10 text-webPara pt-2 md:pt-0">
               {/* Step 1 */}
               <div
                 className={`flex items-start gap-3 sm:gap-4 ${
@@ -70,7 +70,7 @@ const HowToEnter = () => {
                     {t.step_1}
                   </div>
                 </div>
-                <div className="font-DINCondensed-Bold text-base sm:text-lg md:text-md leading-relaxed">
+                <div className="font-DINCondensed-Bold  text-lg md:text-md leading-relaxed">
                   {t.step_1_content}
                 </div>
               </div>
@@ -86,7 +86,7 @@ const HowToEnter = () => {
                     {t.step_2}
                   </div>
                 </div>
-                <div className="mt-1 font-DINCondensed-Bold text-base sm:text-lg md:text-md leading-relaxed">
+                <div className="mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_2_content}
                 </div>
               </div>
@@ -102,7 +102,7 @@ const HowToEnter = () => {
                     {t.step_3}
                   </div>
                 </div>
-                <div className="font-DINCondensed-Bold text-base sm:text-lg md:text-md leading-relaxed">
+                <div className="font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_3_content}
                 </div>
               </div>
@@ -118,7 +118,7 @@ const HowToEnter = () => {
                     {t.step_4}
                   </div>
                 </div>
-                <div className="mt-1 font-DINCondensed-Bold text-base sm:text-lg md:text-md leading-relaxed">
+                <div className="mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
                   {t.step_4_content}
                 </div>
               </div>
@@ -127,7 +127,7 @@ const HowToEnter = () => {
               <div
                 className={`mt-6 sm:mt-8 ${locale !== "/" ? "text-right" : ""}`}
               >
-                <p className="text-[#2B5CE6] font-DINCondensed-Bold font-bold text-base sm:text-lg md:text-md">
+                <p className="text-[#2B5CE6] font-DINCondensed-Bold font-bold text-lg md:text-md">
                   {t.multiple_entries_text}
                 </p>
               </div>
@@ -137,11 +137,11 @@ const HowToEnter = () => {
           {/* Right Side - Sticker Image */}
           <motion.div
             {...motionSettingsright2left}
-            className={`w-[80%] lg:w-[60%] flex justify-center ml-12 md:ml-0 lg:justify-end ${
+            className={`w-full lg:w-[60%] flex justify-center lg:justify-end max-w-full ${
               locale !== "/" ? "lg:order-1" : "lg:order-2"
             }`}
           >
-            <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+            <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               <Image
                 src={howtoenter_sticker}
                 alt="Marmum Products"

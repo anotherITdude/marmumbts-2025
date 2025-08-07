@@ -131,7 +131,7 @@ const RegistrationForm = () => {
   return (
     <div
       id="register"
-      className="w-full max-w-[90%] md:max-w-[70%] mx-auto justify-center items-center relative px-2 sm:px-4"
+      className="w-full max-w-[90%] md:max-w-[70%] mx-auto justify-center items-center relative px-2 sm:px-4 "
     >
       {/* Pin Icon */}
       <motion.div
@@ -172,7 +172,7 @@ const RegistrationForm = () => {
             className="px-2 sm:px-4 pt-0 mt-1"
           >
             {/* First Row: Name and Mobile */}
-            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
+            <div className="flex flex-col gap-4  md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
               <FormField
                 error={errors.name ? String(errors.name?.message) : undefined}
               >
@@ -382,7 +382,7 @@ const RegistrationForm = () => {
 
             {/* Submit Button */}
             <div
-              className={`w-full flex justify-center items-center form-field pt-4 sm:pt-6 md:pt-8 font-DINCondensed-Bold
+              className={`w-full flex justify-center items-center form-field -mt-4 pt-0 md:pt-2 font-DINCondensed-Bold
                  ${isLoading ? "animate-pulse" : ""}`}
             >
               <Button

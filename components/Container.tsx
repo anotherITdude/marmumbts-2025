@@ -11,7 +11,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
     <div
       dir={`${locale === "/ar" ? "rtl" : "ltr"}`}
-      className="max-w-[99%] lg:max-w-[1000px] pt-2 md:pt-[50px] pb-2 md:pb-[50px] mx-auto rounded-b-3xl relative min-h-screen"
+      className="max-w-[99%] lg:max-w-[1000px] pt-2 md:pt-[50px] pb-2 md:pb-[50px] mx-auto rounded-b-3xl relative min-h-screen overflow-x-hidden"
     >
       {/* Navbar Header Image - positioned sticky at the top */}
       <div className="sticky top-0 left-0 mt-0 right-0 z-50 bg-white">
