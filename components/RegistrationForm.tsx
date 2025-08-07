@@ -131,11 +131,11 @@ const RegistrationForm = () => {
   return (
     <div
       id="register"
-      className="w-[90%] md:w-[70%] justify-center items-center relative"
+      className="w-full max-w-[90%] md:max-w-[70%] mx-auto justify-center items-center relative px-2 sm:px-4"
     >
       {/* Pin Icon */}
       <motion.div
-        className="absolute top-0 right-8 md:right-16 z-10"
+        className="absolute -top-2 right-4 sm:right-8 md:right-16 z-10"
         animate={{
           x: [0, 3, -4, 6, 0],
           y: [0, 4, -2, 3, 0],
@@ -149,23 +149,30 @@ const RegistrationForm = () => {
           delay: 1.5,
         }}
       >
-        <Image src={pinIcon} alt="Pin" className="w-12 h-12 md:w-16 md:h-16" />
+        <Image
+          src={pinIcon}
+          alt="Pin"
+          className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16"
+        />
       </motion.div>
 
       <div className="">
         <div className="right">
           {/* Registration Title Image */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-6 sm:mb-8">
             <Image
               src={registrationTitle}
               alt="Registration"
-              className="max-w-[300px] md:max-w-[400px] h-auto"
+              className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] h-auto"
             />
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="px-4 pt-0 mt-1">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="px-2 sm:px-4 pt-0 mt-1"
+          >
             {/* First Row: Name and Mobile */}
-            <div className="flex flex-col gap-6 md:gap-6 mb-6 md:flex-row justify-between">
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
               <FormField
                 error={errors.name ? String(errors.name?.message) : undefined}
               >
@@ -196,7 +203,7 @@ const RegistrationForm = () => {
             </div>
 
             {/* Second Row: Email and Emirate */}
-            <div className="flex flex-col gap-6 md:gap-6 mb-6 md:flex-row justify-between">
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
               <FormField
                 error={errors.email ? String(errors.email?.message) : undefined}
               >
@@ -220,13 +227,14 @@ const RegistrationForm = () => {
                     <SelectTrigger
                       className={`
                       w-full
-                      h-14
-                      px-6
+                      h-12 sm:h-14
+                      px-4 sm:px-6
                       rounded-full
-                      bg-blue-100
+                      bg-webLightBlue
                       border-2
                       border-blue-200
                       text-black
+                      placeholder-black
                       outline-none
                       transition-all
                       duration-200
@@ -261,7 +269,7 @@ const RegistrationForm = () => {
                   {errors.emirate && (
                     <p
                       className={`text-red-500 text-xs mt-1 ${
-                        locale === "/" ? "ml-6" : "mr-6"
+                        locale === "/" ? "ml-4 sm:ml-6" : "mr-4 sm:mr-6"
                       }`}
                     >
                       {t.emirate_error}
@@ -272,7 +280,7 @@ const RegistrationForm = () => {
             </div>
 
             {/* Third Row: Emirates ID and Upload */}
-            <div className="flex flex-col gap-6 md:gap-6 mb-6 md:flex-row justify-between">
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
               <FormField
                 error={errors.eid ? String(errors.eid?.message) : undefined}
               >
@@ -293,13 +301,13 @@ const RegistrationForm = () => {
                     onClick={handleUploadClick}
                     className={`
                       w-full
-                      h-14
-                      px-6
+                      h-12 sm:h-14
+                      px-4 sm:px-6
                       rounded-full
-                      bg-blue-100
+                      bg-webLightBlue
                       border-2
                       border-blue-200
-                      text-gray-700
+                      text-black
                       outline-none
                       transition-all
                       duration-200
@@ -322,17 +330,18 @@ const RegistrationForm = () => {
                           ? "font-DINCondensed-Bold tracking-wider text-md"
                           : "font-NotoKufiArabic-Regular text-sm"
                       }
+                      truncate pr-2
                     `}
                     >
                       {selectedFile
                         ? selectedFile.name
                         : t.upload_purchase_receipt}
                     </span>
-                    <div className="flex items-center">
+                    <div className="flex items-center flex-shrink-0">
                       <Image
                         src={uploadIcon}
                         alt="Upload"
-                        className="w-10  mr-2"
+                        className="w-8 sm:w-10 mr-1 sm:mr-2"
                       />
                     </div>
                   </div>
@@ -351,7 +360,7 @@ const RegistrationForm = () => {
                   {errors.receipt && (
                     <p
                       className={`text-red-500 text-xs mt-1 ${
-                        locale === "/" ? "ml-6" : "mr-6"
+                        locale === "/" ? "ml-4 sm:ml-6" : "mr-4 sm:mr-6"
                       }`}
                     >
                       {String(errors.receipt?.message)}
@@ -359,7 +368,7 @@ const RegistrationForm = () => {
                   )}
 
                   <div
-                    className={`mt-2 ml-6 uppercase text-xs text-white ${
+                    className={`mt-2 ml-4 sm:ml-6 uppercase text-xs text-white ${
                       locale === "/"
                         ? "font-NotoKufiArabic-Regular "
                         : "font-NotoKufiArabic-Regular"
@@ -373,7 +382,7 @@ const RegistrationForm = () => {
 
             {/* Submit Button */}
             <div
-              className={`w-full flex justify-center items-center form-field pt-4 font-DINCondensed-Bold
+              className={`w-full flex justify-center items-center form-field pt-4 sm:pt-6 md:pt-8 font-DINCondensed-Bold
                  ${isLoading ? "animate-pulse" : ""}`}
             >
               <Button
