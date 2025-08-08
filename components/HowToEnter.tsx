@@ -31,16 +31,17 @@ const HowToEnter = () => {
   const t = locale === "/" ? en : ar;
 
   return (
-    <div className="min-h-auto px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 relative overflow-x-hidden w-full max-w-full">
+    <div
+      dir="ltr"
+      className="min-h-auto px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 relative overflow-x-hidden w-full max-w-full"
+    >
       <div className="mx-auto max-w-full">
         {/* Flex Grid Layout */}
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-16 items-start max-w-full">
           {/* Left Side - Title and Content */}
           <motion.div
             {...motionSettingsleft2right}
-            className={`w-full lg:w-[50%] space-y-4 sm:space-y-6 lg:space-y-8 max-w-full ${
-              locale !== "/" ? "lg:order-2" : "lg:order-1"
-            }`}
+            className="w-full lg:w-[50%] space-y-4 sm:space-y-6 lg:space-y-8 max-w-full lg:order-1"
           >
             {/* Title Image */}
             <div
@@ -137,9 +138,7 @@ const HowToEnter = () => {
           {/* Right Side - Sticker Image */}
           <motion.div
             {...motionSettingsright2left}
-            className={`w-full lg:w-[60%] flex justify-center ml-4 md:ml=0 lg:justify-end max-w-full ${
-              locale !== "/" ? "lg:order-1" : "lg:order-2"
-            }`}
+            className="w-full lg:w-[60%] flex justify-center ml-4 md:ml=0 lg:justify-end max-w-full lg:order-2"
           >
             <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               <Image

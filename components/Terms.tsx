@@ -14,13 +14,13 @@ const Terms = () => {
   const locale = usePathname();
   const t = locale === "/" ? en : ar;
   return (
-    <div id="terms" className="relative md:overflow-hidden">
+    <div id="terms" className="relative ">
       <Section>
         <div className="relative w-full max-w-6xl mx-auto px-1 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 md:py-8">
           {/* Title Image */}
           <div
             className={`mb-6 sm:mb-8 ${
-              locale !== "/" ? "flex justify-end" : "flex justify-start"
+              locale !== "/" ? "flex justify-start" : "flex justify-start"
             }`}
           >
             <div className="w-auto ml-2 md:ml-0 max-w-[110%] md:max-w-lg">
@@ -38,7 +38,9 @@ const Terms = () => {
             {/* Pen and Cup Images - Top Right */}
             <div className="flex gap-4 ">
               <motion.div
-                className="absolute -top-[22%] md:-top-32  md:right-[20%] z-10"
+                className={`absolute -top-[22%]   md:right-[20%] z-10 ${
+                  locale !== "/" ? "md:-top-32" : "md:-top-32"
+                }`}
                 animate={{
                   x: [0, -5, 5, -3, 0],
                   y: [0, -3, 2, -4, 0],
@@ -59,7 +61,9 @@ const Terms = () => {
                 />
               </motion.div>
               <motion.div
-                className="absolute -top-[29%] md:-top-40 -right-[5%]  md:-right-[10%] z-10"
+                className={`absolute -top-[29%]  -right-[5%]  md:-right-[10%] z-10 ${
+                  locale !== "/" ? "md:-top-56" : "md:-top-56"
+                }`}
                 animate={{
                   x: [0, 3, -4, 6, 0],
                   y: [0, 4, -2, 3, 0],
@@ -82,7 +86,10 @@ const Terms = () => {
             </div>
 
             {/* Terms Content */}
-            <div className="max-w-4xl mx-auto px-1.5 sm:px-4 md:px-0">
+            <div
+              className="max-w-4xl mx-auto px-1.5 sm:px-4 md:px-0"
+              dir={locale === "/" ? "ltr" : "rtl"}
+            >
               <div className="bg-transparent">
                 <ol
                   className={`list-decimal space-y-4 sm:space-y-6 text-webPara leading-relaxed ${
