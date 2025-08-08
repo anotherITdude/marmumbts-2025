@@ -45,7 +45,7 @@ const HowToEnter = () => {
             {/* Title Image */}
             <div
               className={`${
-                locale !== "/" ? "flex justify-end" : "flex justify-start"
+                locale !== "/" ? "flex justify-end" : "flex justify-end"
               }`}
             >
               <div className="w-auto max-w-[240px] sm:max-w-[270px] md:max-w-[360px] ml-2 md:ml-0">

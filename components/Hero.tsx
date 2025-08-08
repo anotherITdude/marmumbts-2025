@@ -2,14 +2,27 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 
-// Import new images from 2025 folder
+// Import new images from 2025 folder - English versions
 import backtoschool from "../public/2025/backtoschool.png";
 import winlist from "../public/2025/winlist.png";
 import hero from "../public/2025/hero.png";
 
+// Import Arabic versions (will be renamed later)
+import backtoschool_ar from "../public/2025/backtoschool.png";
+import winlist_ar from "../public/2025/winlist.png";
+import hero_ar from "../public/2025/hero.png";
+
 const Hero = () => {
+  const locale = usePathname();
+
+  // Conditional image selection based on language
+  const backtoschoolImage = locale === "/ar" ? backtoschool_ar : backtoschool;
+  const winlistImage = locale === "/ar" ? winlist_ar : winlist;
+  const heroImage = locale === "/ar" ? hero_ar : hero;
+
   const motionSettings = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -37,7 +50,7 @@ const Hero = () => {
             {/* Back to School Image */}
             <div className="flex justify-center">
               <Image
-                src={backtoschool}
+                src={backtoschoolImage}
                 alt="Back to School"
                 className="w-full max-w-[90%] md:max-w-[400px] lg:max-w-full h-auto object-contain"
                 priority
@@ -47,7 +60,7 @@ const Hero = () => {
             {/* Win List Image */}
             <div className="flex justify-center">
               <Image
-                src={winlist}
+                src={winlistImage}
                 alt="Win List - 50 Winners of 4 Tickets Each"
                 className="w-full max-w-[85%] sm:max-w-[350px] md:max-w-[400px] lg:max-w-full h-auto object-contain"
               />
@@ -60,7 +73,7 @@ const Hero = () => {
             className="flex justify-center lg:justify-end w-full lg:w-auto mt-4 lg:mt-0"
           >
             <Image
-              src={hero}
+              src={heroImage}
               alt="Hero Image"
               className="w-full max-w-[85%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-full h-auto object-contain"
               priority

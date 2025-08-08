@@ -37,11 +37,19 @@ const Navbar = () => {
                     href={lang === "en" ? "/" : `/${lang}`}
                     className={`text-base sm:text-lg transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
                       locale === `/${lang}` || (locale === "/" && lang === "en")
-                        ? "text-webBlue cursor-default"
-                        : "text-webPara hover:text-webBlue hover:bg-gray-100 cursor-pointer"
+                        ? "text-webBlue cursor-default pointer-events-none"
+                        : "text-webPara hover:text-webBlue cursor-pointer"
                     }`}
                     style={{ fontFamily: "DINCondensed-Bold, sans-serif" }}
                     onClick={(e) => {
+                      // Prevent click on active link
+                      if (
+                        locale === `/${lang}` ||
+                        (locale === "/" && lang === "en")
+                      ) {
+                        e.preventDefault();
+                        return;
+                      }
                       // Force page refresh for proper language switching
                       e.preventDefault();
                       const newHref = lang === "en" ? "/" : `/${lang}`;
@@ -64,9 +72,7 @@ const Navbar = () => {
       </motion.div>
 
       <motion.div
-        className={` pt-5 md:pt-4 ${
-          locale === "/ar" ? "order-1" : "order-2"
-        }`}
+        className={` pt-5 md:pt-4 ${locale === "/ar" ? "order-1" : "order-2"}`}
       >
         <Link href="/">
           <Image

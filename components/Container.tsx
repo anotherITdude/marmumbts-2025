@@ -10,7 +10,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
   const locale = usePathname();
   return (
     <div
-      dir={`${locale === "/ar" ? "rtl" : "ltr"}`}
+      dir={`${locale === "/ar" ? "ltr" : "ltr"}`}
       className="max-w-[99%] lg:max-w-[1000px] pt-2 md:pt-[50px] pb-2 md:pb-[50px] mx-auto rounded-b-3xl relative min-h-screen"
     >
       {/* Navbar Header Image - positioned sticky at the top */}
