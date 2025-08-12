@@ -11,9 +11,9 @@ import winlist from "../public/2025/winlist.png";
 import hero from "../public/2025/hero.png";
 
 // Import Arabic versions (will be renamed later)
-import backtoschool_ar from "../public/2025/backtoschool.png";
-import winlist_ar from "../public/2025/winlist.png";
-import hero_ar from "../public/2025/hero.png";
+import backtoschool_ar from "../public/2025/backtoschool_ar.png";
+import winlist_ar from "../public/2025/winlist_ar.png";
+import hero_ar from "../public/2025/hero_ar.png";
 
 const Hero = () => {
   const locale = usePathname();

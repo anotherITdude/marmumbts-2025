@@ -17,6 +17,21 @@
   src: url("../Fonts/impact.ttf");
 }
 
+@font-face {
+  font-family: "DINArabic-Black";
+  src: url("../Fonts/DINArabic-Black.ttf");
+}
+
+@font-face {
+  font-family: "DINArabic-CondBlack";
+  src: url("../Fonts/DINArabic-CondBlack.ttf");
+}
+
+@font-face {
+  font-family: "DINArabic-CondBold";
+  src: url("../Fonts/DINArabic-CondBold.ttf");
+}
+
 /* @layer base {
   * {
     @apply border-border;

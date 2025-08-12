@@ -7,6 +7,7 @@ import ar from "../locales/ar";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import terms_title from "@/public/2025/terms_title.png";
+import terms_title_ar from "@/public/2025/terms_title_ar.png";
 import terms_pen from "@/public/2025/terms_pen.png";
 import terms_cup from "@/public/2025/terms_cup.png";
 
@@ -25,7 +26,7 @@ const Terms = () => {
           >
             <div className="w-auto ml-2 md:ml-0 max-w-[110%] md:max-w-lg">
               <Image
-                src={terms_title}
+                src={locale === "/" ? terms_title : terms_title_ar}
                 alt="Terms & Conditions"
                 className="w-full h-auto"
                 priority
@@ -94,8 +95,8 @@ const Terms = () => {
                 <ol
                   className={`list-decimal space-y-4 sm:space-y-6 text-webPara leading-relaxed ${
                     locale === "/"
-                      ? "font-DINCondensed-Bold text-lg  md:text-lg pl-4 sm:pl-6"
-                      : "font-DINCondensed-Bold text-md  md:text-lg pr-4 sm:pr-6 md:pr-8"
+                      ? "font-DINCondensed-Bold text-lg md:text-lg pl-4 sm:pl-6"
+                      : "font-DINArabic-CondBold text-md md:text-lg pr-4 sm:pr-6 md:pr-8"
                   }`}
                   style={{
                     marginLeft: locale === "/" ? "clamp(10px, 2vw, 20px)" : "0",

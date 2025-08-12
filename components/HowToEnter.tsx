@@ -5,7 +5,9 @@ import en from "../locales/en";
 import ar from "../locales/ar";
 import { usePathname } from "next/navigation";
 import howtoenter_title from "../public/2025/howtoenter_title.png";
+import howtoenter_title_ar from "../public/2025/howtoenter_title_ar.png";
 import howtoenter_sticker from "../public/2025/howtoenter_sticker.png";
+import howtoenter_sticker_ar from "../public/2025/howtoenter_sticker_ar.png";
 import Image from "next/image";
 
 const HowToEnter = () => {
@@ -51,7 +53,7 @@ const HowToEnter = () => {
             >
               <div className="w-auto max-w-[240px] sm:max-w-[270px] md:max-w-[360px] ml-2 md:ml-0">
                 <Image
-                  src={howtoenter_title}
+                  src={locale === "/" ? howtoenter_title : howtoenter_title_ar}
                   alt="How to Enter"
                   className="w-full h-auto"
                 />
@@ -67,11 +69,18 @@ const HowToEnter = () => {
                 }`}
               >
                 <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-0 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-1 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
                     {t.step_1}
                   </div>
                 </div>
-                <div className="font-DINCondensed-Bold  text-lg md:text-md leading-relaxed">
+                <div
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold"
+                      : "font-DINArabic-CondBold"
+                  } text-lg md:text-md leading-relaxed`}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                >
                   {t.step_1_content}
                 </div>
               </div>
@@ -83,11 +92,18 @@ const HowToEnter = () => {
                 }`}
               >
                 <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-0 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-1 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
                     {t.step_2}
                   </div>
                 </div>
-                <div className="mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div
+                  className={`mt-1 ${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold"
+                      : "font-DINArabic-CondBold"
+                  } text-lg md:text-md leading-relaxed`}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                >
                   {t.step_2_content}
                 </div>
               </div>
@@ -99,11 +115,18 @@ const HowToEnter = () => {
                 }`}
               >
                 <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-0 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-1 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
                     {t.step_3}
                   </div>
                 </div>
-                <div className="font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold"
+                      : "font-DINArabic-CondBold"
+                  } text-lg md:text-md leading-relaxed`}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                >
                   {t.step_3_content}
                 </div>
               </div>
@@ -115,11 +138,18 @@ const HowToEnter = () => {
                 }`}
               >
                 <div className="flex-shrink-0 mt-1">
-                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-0 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex justify-center pt-1 md:pt-1 items-center rounded-full border border-1 border-webBlue text-webBlue font-DINCondensed-Bold text-sm md:text-lg">
                     {t.step_4}
                   </div>
                 </div>
-                <div className="mt-1 font-DINCondensed-Bold text-lg md:text-md leading-relaxed">
+                <div
+                  className={`mt-1 ${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold"
+                      : "font-DINArabic-CondBold"
+                  } text-lg md:text-md leading-relaxed`}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                >
                   {t.step_4_content}
                 </div>
               </div>
@@ -128,7 +158,14 @@ const HowToEnter = () => {
               <div
                 className={`mt-6 sm:mt-8 ${locale !== "/" ? "text-right" : ""}`}
               >
-                <p className="text-[#2B5CE6] font-DINCondensed-Bold font-bold text-lg md:text-md">
+                <p
+                  className={`text-[#2B5CE6] ${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold"
+                      : "font-DINArabic-CondBold"
+                  } font-bold text-lg md:text-md`}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                >
                   {t.multiple_entries_text}
                 </p>
               </div>
@@ -142,7 +179,9 @@ const HowToEnter = () => {
           >
             <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
               <Image
-                src={howtoenter_sticker}
+                src={
+                  locale === "/" ? howtoenter_sticker : howtoenter_sticker_ar
+                }
                 alt="Marmum Products"
                 className="w-full h-auto"
               />

@@ -29,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           // Font styling based on locale
           locale === "/"
             ? "font-DINCondensed-Bold tracking-wider text-md"
-            : "font-NotoKufiArabic-Regular text-sm",
+            : "font-DINArabic-CondBold text-sm",
           className,
         )}
         ref={ref}
@@ -62,7 +62,11 @@ const FormField: React.FC<FormFieldProps> = ({
           <p
             className={`text-red-500 text-xs mt-1 ${
               locale === "/" ? "ml-6" : "mr-6"
-            }`}
+            } ${
+              locale === "/"
+                ? "font-DINCondensed-Bold"
+                : "font-DINArabic-CondBold"
+            } ${locale === "/" ? "text-left" : "text-right"}`}
           >
             {error}
           </p>

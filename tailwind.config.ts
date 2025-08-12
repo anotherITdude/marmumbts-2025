@@ -21,7 +21,10 @@ const config = {
       fontFamily: {
         "DINCondensed-Bold": ["DINCondensed-Bold", "Arial", "sans-serif"],
         "Gotham-Black": ["Gotham-Black", "Arial", "sans-serif"],
-        "Impact": ["Impact", "Arial", "sans-serif"],
+        Impact: ["Impact", "Arial", "sans-serif"],
+        "DINArabic-Black": ["DINArabic-Black", "Arial", "sans-serif"],
+        "DINArabic-CondBlack": ["DINArabic-CondBlack", "Arial", "sans-serif"],
+        "DINArabic-CondBold": ["DINArabic-CondBold", "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -59,7 +62,7 @@ const config = {
         },
         // Custom colors for your project
         webLightBlue: "#C9EDFF",
-        webPara:"#4F4F52",
+        webPara: "#4F4F52",
         bgMain: "#383838",
         webBlue: "#0075C9", // You can adjust this color value
         webRed: "#EF4444",

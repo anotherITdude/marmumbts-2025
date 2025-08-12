@@ -25,10 +25,10 @@ import { usePathname } from "next/navigation";
 import Button from "./Button";
 
 // Import new design assets
-import registrationLine from "../public/2025/registrationline.png";
 import uploadIcon from "../public/2025/upload.png";
 import pinIcon from "../public/2025/pin.png";
-import registrationTitle from "../public/2025/registration_title@72x.png";
+import registrationTitle from "../public/2025/registration_title.png";
+import registrationTitle_ar from "../public/2025/registration_title_ar.png";
 
 const RegistrationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -161,7 +161,7 @@ const RegistrationForm = () => {
           {/* Registration Title Image */}
           <div className="flex justify-center mb-6 sm:mb-8">
             <Image
-              src={registrationTitle}
+              src={locale === "/" ? registrationTitle : registrationTitle_ar}
               alt="Registration"
               className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] h-auto"
             />
@@ -183,6 +183,12 @@ const RegistrationForm = () => {
                   placeholder={t.name}
                   type="text"
                   error={!!errors.name}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold text-base"
+                      : "font-DINArabic-CondBold text-lg"
+                  }`}
                 />
               </FormField>
 
@@ -198,6 +204,12 @@ const RegistrationForm = () => {
                   placeholder={t.mobile}
                   type="text"
                   error={!!errors.mobile}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold text-base"
+                      : "font-DINArabic-CondBold text-lg"
+                  }`}
                 />
               </FormField>
             </div>
@@ -214,6 +226,12 @@ const RegistrationForm = () => {
                   placeholder={t.email}
                   type="email"
                   error={!!errors.email}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold text-base"
+                      : "font-DINArabic-CondBold text-lg"
+                  }`}
                 />
               </FormField>
 
@@ -246,7 +264,7 @@ const RegistrationForm = () => {
                       ${
                         locale === "/"
                           ? "font-DINCondensed-Bold tracking-wider text-md"
-                          : "font-NotoKufiArabic-Regular text-sm"
+                          : "font-DINArabic-CondBold text-base"
                       }
                     `}
                     >
@@ -270,7 +288,11 @@ const RegistrationForm = () => {
                     <p
                       className={`text-red-500 text-xs mt-1 ${
                         locale === "/" ? "ml-4 sm:ml-6" : "mr-4 sm:mr-6"
-                      }`}
+                      } ${
+                        locale === "/"
+                          ? "font-DINCondensed-Bold"
+                          : "font-DINArabic-CondBold"
+                      } ${locale === "/" ? "text-left" : "text-right"}`}
                     >
                       {t.emirate_error}
                     </p>
@@ -291,6 +313,12 @@ const RegistrationForm = () => {
                   placeholder={t.emirate_id_number}
                   type="text"
                   error={!!errors.eid}
+                  dir={locale === "/" ? "ltr" : "rtl"}
+                  className={`${
+                    locale === "/"
+                      ? "font-DINCondensed-Bold text-base"
+                      : "font-DINArabic-CondBold text-lg"
+                  }`}
                 />
               </FormField>
 
@@ -316,7 +344,11 @@ const RegistrationForm = () => {
                       cursor-pointer
                       flex
                       items-center
-                      justify-between
+                      ${
+                        locale === "/"
+                          ? "justify-between"
+                          : "justify-between flex-row-reverse"
+                      }
                       disabled:opacity-70
                       disabled:cursor-not-allowed
                       ${errors.receipt ? "border-red-500 bg-red-50" : ""}
@@ -328,9 +360,9 @@ const RegistrationForm = () => {
                       ${
                         locale === "/"
                           ? "font-DINCondensed-Bold tracking-wider text-md"
-                          : "font-NotoKufiArabic-Regular text-sm"
+                          : "font-DINArabic-CondBold text-base"
                       }
-                      truncate pr-2
+                      truncate ${locale === "/" ? "pr-2" : "pl-2"}
                     `}
                     >
                       {selectedFile
@@ -341,7 +373,9 @@ const RegistrationForm = () => {
                       <Image
                         src={uploadIcon}
                         alt="Upload"
-                        className="w-8 sm:w-10 mr-1 sm:mr-2"
+                        className={`w-8 sm:w-10 ${
+                          locale === "/" ? "mr-1 sm:mr-2" : "ml-1 sm:ml-2"
+                        }`}
                       />
                     </div>
                   </div>
@@ -361,17 +395,21 @@ const RegistrationForm = () => {
                     <p
                       className={`text-red-500 text-xs mt-1 ${
                         locale === "/" ? "ml-4 sm:ml-6" : "mr-4 sm:mr-6"
-                      }`}
+                      } ${
+                        locale === "/"
+                          ? "font-DINCondensed-Bold"
+                          : "font-DINArabic-CondBold"
+                      } ${locale === "/" ? "text-left" : "text-right"}`}
                     >
                       {String(errors.receipt?.message)}
                     </p>
                   )}
 
                   <div
-                    className={`mt-2 ml-4 sm:ml-6 uppercase text-xs text-white ${
+                    className={`mt-2 ml-4 sm:ml-6 uppercase text-white ${
                       locale === "/"
-                        ? "font-NotoKufiArabic-Regular "
-                        : "font-NotoKufiArabic-Regular"
+                        ? "font-DINCondensed-Bold text-xs"
+                        : "font-DINArabic-CondBold text-sm"
                     }`}
                   >
                     ({t.max_upload_size})
@@ -382,14 +420,22 @@ const RegistrationForm = () => {
 
             {/* Submit Button */}
             <div
-              className={`w-full flex justify-center items-center form-field -mt-4 pt-0 md:pt-2 font-DINCondensed-Bold
-                 ${isLoading ? "animate-pulse" : ""}`}
+              className={`w-full flex justify-center items-center form-field -mt-4 pt-0 md:pt-2 ${
+                locale === "/"
+                  ? "font-DINCondensed-Bold"
+                  : "font-DINArabic-CondBold"
+              } ${isLoading ? "animate-pulse" : ""}`}
             >
               <Button
                 arrow={false}
                 outline
                 disabled={isLoading}
                 label={`${isLoading ? t.form_submit_message : t.register_now}`}
+                className={`${
+                  locale === "/"
+                    ? "font-DINCondensed-Bold"
+                    : "font-DINArabic-CondBold"
+                }`}
               />
             </div>
           </form>
