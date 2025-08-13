@@ -183,7 +183,7 @@ const BackToSchool = () => {
                 {t.back_to_school_contact}{" "}
                 <a
                   href="mailto:marketing.comms@marmum.com"
-                  className="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal"
+                  className="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal font-DINCondensed-Bold"
                 >
                   marketing.comms@marmum.com
                 </a>
