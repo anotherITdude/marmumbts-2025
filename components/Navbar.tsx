@@ -25,7 +25,7 @@ const Navbar = () => {
         className="font-neosans-medium uppercase flex justify-start items-center gap-[3px]"
       >
         <div
-          className={`mt-4 sm:mt-6 md:mt-10 ${
+          className={`mt-2 sm:mt-6 md:mt-10 ${
             locale === "/ar" ? "order-2" : "order-1"
           }`}
         >
@@ -35,7 +35,7 @@ const Navbar = () => {
                 <React.Fragment key={lang}>
                   <Link
                     href={lang === "en" ? "/" : `/${lang}`}
-                    className={`text-base sm:text-lg transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
+                    className={`text-lg sm:text-lg transition-all duration-300 rounded px-0 py-1 flex items-center justify-center ${
                       locale === `/${lang}` || (locale === "/" && lang === "en")
                         ? "text-webBlue cursor-default pointer-events-none"
                         : "text-webPara hover:text-webBlue cursor-pointer"
@@ -80,7 +80,7 @@ const Navbar = () => {
             placeholder="empty"
             src={finalLogo}
             alt="logo"
-            className="w-[120px] sm:w-[140px] md:w-[150px] lg:w-[200px] pt-2 sm:pt-3 md:pt-4 -mt-6 sm:-mt-7 md:-mt-8 cursor-pointer"
+            className="w-[140px] sm:w-[140px] md:w-[150px] lg:w-[200px] pt-2 sm:pt-3 md:pt-4 -mt-6 sm:-mt-7 md:-mt-8 cursor-pointer"
           />
         </Link>
       </motion.div>

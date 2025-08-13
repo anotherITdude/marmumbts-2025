@@ -42,10 +42,45 @@ const Hero = () => {
       <div className="relative z-10 px-4 sm:px-6 md:px-10  pt-4 md:pt-0 md:py-0 md:pb-5">
         {/* Main Flex Layout */}
         <div className="flex flex-col lg:flex-row justify-center items-center gap-2 sm:gap-4 lg:gap-6">
-          {/* Left Section - Back to School + Win List */}
+          {/* Mobile Layout: Back to School → Hero → Win List */}
+          <div className="flex flex-col lg:hidden gap-4 sm:gap-6 w-full">
+            {/* Back to School Image */}
+            <motion.div {...motionSettings} className="flex justify-center">
+              <Image
+                src={backtoschoolImage}
+                alt="Back to School"
+                className="w-full max-w-[90%] h-auto object-contain"
+                priority
+              />
+            </motion.div>
+
+            {/* Hero Image */}
+            <motion.div
+              {...motionSettingsStagger}
+              className="flex justify-center"
+            >
+              <Image
+                src={heroImage}
+                alt="Hero Image"
+                className="w-full max-w-[85%] h-auto object-contain"
+                priority
+              />
+            </motion.div>
+
+            {/* Win List Image */}
+            <motion.div {...motionSettings} className="flex justify-center">
+              <Image
+                src={winlistImage}
+                alt="Win List - 50 Winners of 4 Tickets Each"
+                className="w-full max-w-[85%] h-auto object-contain"
+              />
+            </motion.div>
+          </div>
+
+          {/* Desktop Layout: Left Section - Back to School + Win List */}
           <motion.div
             {...motionSettings}
-            className="flex flex-col gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto"
+            className="hidden lg:flex flex-col gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto"
           >
             {/* Back to School Image */}
             <div className="flex justify-center">
@@ -67,10 +102,10 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Section - Hero Image */}
+          {/* Desktop Layout: Right Section - Hero Image */}
           <motion.div
             {...motionSettingsStagger}
-            className="flex justify-center lg:justify-end w-full lg:w-auto mt-4 lg:mt-0"
+            className="hidden lg:flex justify-center lg:justify-end w-full lg:w-auto mt-4 lg:mt-0"
           >
             <Image
               src={heroImage}
