@@ -434,7 +434,7 @@ const RegistrationForm = () => {
                 label={`${isLoading ? t.form_submit_message : t.register_now}`}
                 className={`${
                   locale === "/"
-                    ? "font-DINCondensed-Bold pt-2 md:pt-2"
+                    ? "font-DINCondensed-Bold pt-2.5 md:pt-2.5"
                     : "font-DINArabic-CondBold"
                 }`}
               />
