@@ -112,13 +112,17 @@ const BackToSchool = () => {
         <div className="flex">
           <div className="flex-1 md:block hidden"></div>
           <div
-            className="flex flex-col items-center text-left md:items-end md:text-right ml-3 md:ml-0 
-          space-y-4 md:space-y-6 max-w-4xl w-full md:w-auto"
+            className={`flex flex-col items-center md:items-end md:text-right ml-3 md:ml-0 
+          space-y-4 md:space-y-6 max-w-4xl w-full md:w-auto ${
+            locale === "/" ? "text-left" : "text-right"
+          }`}
           >
             {/* Title Image */}
             <motion.div
               {...motionSettingstop2bottom}
-              className="w-full max-w-xs md:max-w-lg flex justify-center ml-2 md:ml-0 md:justify-end"
+              className={`w-full max-w-xs md:max-w-lg flex ml-2 md:ml-0 md:justify-end ${
+                locale === "/" ? "justify-center" : "justify-end"
+              }`}
             >
               <Image
                 src={
