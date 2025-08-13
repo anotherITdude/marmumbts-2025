@@ -170,6 +170,7 @@ const RegistrationForm = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="md:px-2  pt-0 mt-1 ml-3 md:ml-0"
+            dir={locale === "/" ? "ltr" : "rtl"}
           >
             {/* First Row: Name and Mobile */}
             <div className="flex flex-col gap-4  md:gap-6 mb-4 sm:mb-5 md:mb-6 md:flex-row justify-between">
@@ -323,7 +324,7 @@ const RegistrationForm = () => {
               </FormField>
 
               {/* Custom Upload Field */}
-              <div className="form-field w-full">
+              <div className="form-field w-full" dir="ltr">
                 <div className="relative">
                   <div
                     onClick={handleUploadClick}
