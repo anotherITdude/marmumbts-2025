@@ -421,10 +421,10 @@ const RegistrationForm = () => {
 
             {/* Submit Button */}
             <div
-              className={`w-full flex justify-center items-center form-field -mt-4 pt-0 md:pt-2 ${
+              className={`w-full flex justify-center items-center form-field -mt-4  ${
                 locale === "/"
-                  ? "font-DINCondensed-Bold"
-                  : "font-DINArabic-CondBold"
+                  ? "font-DINCondensed-Bold pt-1 md:pt-2"
+                  : "font-DINArabic-CondBold pt-0 md:pt-2"
               } ${isLoading ? "animate-pulse" : ""}`}
             >
               <Button
@@ -434,7 +434,7 @@ const RegistrationForm = () => {
                 label={`${isLoading ? t.form_submit_message : t.register_now}`}
                 className={`${
                   locale === "/"
-                    ? "font-DINCondensed-Bold"
+                    ? "font-DINCondensed-Bold pt-2 md:pt-2"
                     : "font-DINArabic-CondBold"
                 }`}
               />
