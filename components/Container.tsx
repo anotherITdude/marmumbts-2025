@@ -42,7 +42,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
         }}
       >
         {/* Red margin line - starts after header */}
-        <div className="absolute left-[8%] -top-[0px] bottom-0 w-0.5 bg-red-300 z-10 opacity-[.3]"></div>
+        <div className="absolute left-[7%]  md:left-[8%] -top-[0px] bottom-0 w-0.5 bg-red-300 z-10 opacity-[.3]"></div>
 
         {/* Main content */}
         <div className="relative z-10">{children}</div>

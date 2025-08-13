@@ -16,7 +16,7 @@ const Navbar = () => {
   const t = locale === "/" ? en : ar;
   return (
     <motion.nav
-      className={`flex justify-between gap-x-2 sm:gap-x-4 -mb-00 z-50 relative px-4 sm:px-6 md:px-10 max-w-7xl mx-auto w-full`}
+      className={`flex justify-between gap-x-2 sm:gap-x-4 -mb-00 z-50 relative px-3 sm:px-6 md:px-10 max-w-7xl mx-auto w-full`}
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -25,7 +25,7 @@ const Navbar = () => {
         className="font-neosans-medium uppercase flex justify-start items-center gap-[3px]"
       >
         <div
-          className={`mt-2 sm:mt-6 md:mt-10 ${
+          className={`-mt-2 sm:mt-6 md:mt-10 ${
             locale === "/ar" ? "order-2" : "order-1"
           }`}
         >
@@ -80,7 +80,7 @@ const Navbar = () => {
             placeholder="empty"
             src={finalLogo}
             alt="logo"
-            className="w-[140px] sm:w-[140px] md:w-[150px] lg:w-[200px] pt-2 sm:pt-3 md:pt-4 -mt-6 sm:-mt-7 md:-mt-8 cursor-pointer"
+            className="w-[170px] sm:w-[140px] md:w-[150px] lg:w-[200px] pt-2 sm:pt-3 md:pt-4 -mt-6 sm:-mt-7 md:-mt-8 cursor-pointer"
           />
         </Link>
       </motion.div>
