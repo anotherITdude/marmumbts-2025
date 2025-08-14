@@ -24,9 +24,9 @@ export async function POST(req: Request) {
     if (!emirate) {
       return new NextResponse("Emirate is required", { status: 400 });
     }
-    if (!eid) {
-      return new NextResponse("Emirates ID is required", { status: 400 });
-    }
+    // if (!eid) {
+    //   return new NextResponse("Emirates ID is required", { status: 400 });
+    // }
     if (!receiptName) {
       return new NextResponse("Receipt is required", { status: 400 });
     }
