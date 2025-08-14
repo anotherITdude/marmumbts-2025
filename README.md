@@ -17,7 +17,7 @@ A Next.js 15.1 application for the Marmum 2025 campaign with Arabic and English 
 
 - **Framework**: Next.js 15.1
 - **Database**: Supabase (PostgreSQL)
-- **Storage**: Supabase Storage
+- **Storage**: AWS S3
 - **Styling**: Tailwind CSS
 - **Forms**: React Hook Form + Yup validation
 - **UI Components**: Radix UI
@@ -48,12 +48,19 @@ npm install
    cp env.example .env.local
    ```
 
-2. Fill in your Supabase credentials in `.env.local`:
+2. Fill in your Supabase and AWS S3 credentials in `.env.local`:
+
    ```
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
    SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
    DATABASE_URL=your_supabase_database_url
+
+   # AWS S3 Configuration
+   REGION=your_aws_region
+   S3_BUCKET_NAME=your_s3_bucket_name
+   ACCESS_KEY_ID=your_aws_access_key_id
+   SECRET_ACCESS_KEY=your_aws_secret_access_key
    ```
 
 ### 4. Supabase Setup
@@ -64,22 +71,25 @@ npm install
 2. Navigate to the SQL Editor
 3. Run the SQL commands from `supabase-schema.sql` to create the table and policies
 
-#### Create Storage Bucket
+#### Configure AWS S3 Bucket
 
-1. In Supabase dashboard, go to Storage
-2. Create a new bucket named `receipts`
-3. Set the bucket to **Public** (or configure appropriate policies)
-4. Configure the bucket policies for public read access:
+1. Create an S3 bucket in your AWS console
+2. Configure CORS policy to allow uploads from your domain:
 
-```sql
--- Allow public read access to receipts
-CREATE POLICY "Public read access" ON storage.objects
-FOR SELECT USING (bucket_id = 'receipts');
-
--- Allow public upload to receipts
-CREATE POLICY "Public upload access" ON storage.objects
-FOR INSERT WITH CHECK (bucket_id = 'receipts');
+```json
+[
+  {
+    "AllowedHeaders": ["Authorization", "Content-Type", "*"],
+    "AllowedMethods": ["GET", "POST", "PUT"],
+    "AllowedOrigins": ["http://localhost:3000", "https://yourdomain.com"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3000
+  }
+]
 ```
+
+3. Set up appropriate IAM permissions for your AWS access keys
+4. Make sure your bucket allows public read access for uploaded files
 
 ### 5. Run the Development Server
 
@@ -156,7 +166,7 @@ npm start
 ## Notes
 
 - The application requires users to upload purchase receipts
-- All uploaded files are stored in Supabase Storage
+- All uploaded files are stored in AWS S3
 - Form validation is handled client-side and server-side
 - The application uses custom Arabic and English fonts
 - Row Level Security (RLS) is enabled on the database table

@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
-import { generateUniqueFileName, getErrorMessage } from "@/lib/utils";
+import { getFileExtension, getErrorMessage } from "@/lib/utils";
 import { CampaignEntry } from "@/lib/database.types";
+import { createAWSUrl } from "@/lib/s3";
+import { randomUUID } from "crypto";
 
 export async function POST(req: Request) {
   try {
@@ -29,24 +31,19 @@ export async function POST(req: Request) {
       return new NextResponse("Receipt is required", { status: 400 });
     }
 
-    // Generate unique filename for Supabase storage
-    const uniqueFileName = generateUniqueFileName(receiptName);
+    // Generate unique filename for AWS S3 storage
+    const stringName = receiptName.toString();
+    const extension = getFileExtension(stringName!);
+    const Key = `${randomUUID()}.${extension}`;
 
-    // Create signed URL for file upload to Supabase Storage
-    const { data: signedUrlData, error: signedUrlError } =
-      await supabase.storage
-        .from("receipts")
-        .createSignedUploadUrl(uniqueFileName);
+    console.log("Creating S3 URL for:", { Key, contentType, receiptName });
 
-    if (signedUrlError) {
-      console.error("[SUPABASE_SIGNED_URL_ERROR]", signedUrlError);
-      return new NextResponse("Error creating upload URL", { status: 500 });
-    }
+    const { url, fields } = await createAWSUrl(Key, contentType);
 
-    // Construct the public URL for the receipt
-    const {
-      data: { publicUrl },
-    } = supabase.storage.from("receipts").getPublicUrl(uniqueFileName);
+    console.log("S3 URL created:", { url, fields });
+
+    // Construct the full S3 URL for the receipt
+    const publicUrl = `${url}${Key}`;
 
     // Create database entry
     const entryData: Omit<CampaignEntry, "id" | "created_at" | "updated_at"> = {
@@ -55,7 +52,7 @@ export async function POST(req: Request) {
       email,
       emirate,
       eid,
-      receipt: publicUrl,
+      receipt: publicUrl, // Store the S3 URL of the uploaded file
       lan: lan || "en",
       selected: false,
       info: "",
@@ -72,11 +69,13 @@ export async function POST(req: Request) {
       return new NextResponse("Error saving entry", { status: 500 });
     }
 
-    // Return the signed upload URL and token for frontend to upload file
+    // Return success response with S3 upload URL and fields
     return NextResponse.json({
-      uploadUrl: signedUrlData.signedUrl,
-      token: signedUrlData.token,
+      success: true,
       entryId: entry.id,
+      message: "Registration entry created, please upload your receipt",
+      url: url,
+      fields: fields,
       publicUrl: publicUrl,
     });
   } catch (error) {

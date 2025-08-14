@@ -21,7 +21,11 @@ export type FormValues = {
 export const schema = (t: any) =>
   yup.object().shape({
     name: yup.string().required(t.name_error),
-    mobile: yup.string().required(t.mobile_error1).matches(/^\d+$/, t.mobile_error2).min(10, t.mobile_error2),
+    mobile: yup
+      .string()
+      .required(t.mobile_error1)
+      .matches(/^\d+$/, t.mobile_error2)
+      .min(10, t.mobile_error2),
     email: yup.string().required(t.email_error1).email(t.email_error2),
     emirate: yup.string().required(t.emirate_error),
     eid: yup
@@ -38,13 +42,14 @@ export const schema = (t: any) =>
       }),
     receipt: yup
       .mixed()
-      .required(t.upload_purchase_receipt_error1)
+      .required(t.upload_purchase_receipt_error1) // File is required
       .test(
         "fileSize",
         t.upload_purchase_receipt_error2,
         (value: any, context) => {
+          // If no file selected, fail validation
           if (!value || !value[0]) {
-            return false; // No file selected, return false to trigger the error
+            return false; // File is required
           }
 
           return value[0].size <= 3000000; // File size limit is 3 MB (3000000 bytes)
