@@ -85,6 +85,6 @@ const translations = {
   // Back to School 2025
   'back_to_school_subtitle': 'Kick off the school year with Marmum for a chance to win exciting prizes!',
   'back_to_school_main_text': 'We\'re giving away 5 school fee vouchers worth AED 15,000 each, 10 iPad Pros, 20 AirPods, and 100 Figure Packs. To enter, simply purchase any Marmum milk, yoghurt, or laban products during the promotion period, upload your receipt and you\'re in the draw to win! The offer is valid from 15 August to 30 September 2025.',
-  'back_to_school_contact': 'For any enquiries related to the promotion, please reach out to us at <a href="mailto:marketing.comms@marmum.com" class="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal font-DINCondensed-Bold">marketing.comms@marmum.com</a> and we will get back to you.'
+  'back_to_school_contact': 'For any enquiries related to the promotion, please reach out to us at <a href="mailto:marketing.comms@marmum.ae" class="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal font-DINCondensed-Bold">marketing.comms@marmum.ae</a> and we will get back to you.'
 };
 export default translations;
