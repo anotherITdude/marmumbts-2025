@@ -179,15 +179,8 @@ const BackToSchool = () => {
                     : "font-DINArabic-CondBold text-lg md:text-lg leading-relaxed"
                 }`}
                 dir={locale === "/" ? "ltr" : "rtl"}
-              >
-                {t.back_to_school_contact}{" "}
-                <a
-                  href="mailto:marketing.comms@marmum.com"
-                  className="text-[#2B5CE6] hover:underline font-bold break-all md:break-normal font-DINCondensed-Bold"
-                >
-                  marketing.comms@marmum.com
-                </a>
-              </p>
+                dangerouslySetInnerHTML={{ __html: t.back_to_school_contact }}
+              />
             </motion.div>
           </div>
         </div>
