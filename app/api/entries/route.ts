@@ -4,9 +4,25 @@ import { getFileExtension, getErrorMessage } from "@/lib/utils";
 import { CampaignEntry } from "@/lib/database.types";
 import { createAWSUrl } from "@/lib/s3";
 import { randomUUID } from "crypto";
+import { isCampaignActive, CAMPAIGN_CONFIG } from "@/lib/config";
 
 export async function POST(req: Request) {
   try {
+    // Check if campaign is active
+    if (!isCampaignActive()) {
+      return new NextResponse(
+        JSON.stringify({
+          error: "Campaign has ended",
+          message: CAMPAIGN_CONFIG.CLOSURE_MESSAGE.en,
+          messageAr: CAMPAIGN_CONFIG.CLOSURE_MESSAGE.ar,
+        }),
+        {
+          status: 403,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
+
     const body = await req.json();
     const { name, mobile, email, emirate, eid, receiptName, lan, contentType } =
       body;

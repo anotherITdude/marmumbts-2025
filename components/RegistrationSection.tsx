@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import RegistrationForm from "./RegistrationForm";
+import CampaignEnded from "./CampaignEnded";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import en from "../locales/en";
 import ar from "../locales/ar";
 import { usePathname } from "next/navigation";
+import { isCampaignActive } from "@/lib/config";
 
 interface RegisterSectionInterface {
   title?: string;
@@ -36,7 +38,7 @@ const RegisterSection: React.FC<RegisterSectionInterface> = ({ title }) => {
     <div id="register">
       <div className="flex overflow-visible flex-col md:flex-row justify-evenly pb-0">
         <div className="flex w-full py-10 justify-center min-h-auto">
-          <RegistrationForm />
+          {isCampaignActive() ? <RegistrationForm /> : <CampaignEnded />}
         </div>
       </div>
     </div>
