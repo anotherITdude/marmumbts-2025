@@ -37,8 +37,8 @@ const CampaignEnded = () => {
           {/* Main title */}
           <motion.div {...motionSettingsTitle} className="mb-8">
             <h2
-              className={`text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4 ${
-                isArabic ? "font-DINArabic-CondBold" : ""
+              className={`text-4xl md:text-6xl font-bold text-webBlue mb-4 ${
+                isArabic ? "font-DINArabic-CondBold" : "font-DINCondensed-Bold"
               }`}
             >
               {isArabic ? "انتهت الحملة" : "Campaign Ended"}
@@ -49,7 +49,7 @@ const CampaignEnded = () => {
           <motion.div {...motionSettings} className="mb-8">
             <p
               className={`text-lg md:text-xl text-gray-600 leading-relaxed ${
-                isArabic ? "font-DINArabic-CondBold" : ""
+                isArabic ? "font-DINArabic-CondBold" : "font-DINCondensed-Bold"
               }`}
             >
               {isArabic
@@ -82,13 +82,8 @@ const CampaignEnded = () => {
             </div>
             <p
               className={`text-gray-600 text-sm ${
-                isArabic ? "font-arabic" : ""
+                isArabic ? "font-DINArabic-CondBold" : ""
               }`}
-              style={{
-                fontFamily: isArabic
-                  ? "NotoKufiArabic-Regular, Arial"
-                  : "CircularStd-Book, Arial",
-              }}
             >
               {isArabic
                 ? "شكراً لجميع المشاركين"
@@ -100,13 +95,8 @@ const CampaignEnded = () => {
           <motion.div {...motionSettings} className="mt-8">
             <p
               className={`text-sm text-gray-500 ${
-                isArabic ? "font-arabic" : ""
+                isArabic ? "font-DINArabic-CondBold" : "font-DINCondensed-Bold"
               }`}
-              style={{
-                fontFamily: isArabic
-                  ? "NotoKufiArabic-Regular, Arial"
-                  : "CircularStd-Book, Arial",
-              }}
             >
               {isArabic
                 ? "تابعونا للحصول على آخر الأخبار والحملات القادمة"
